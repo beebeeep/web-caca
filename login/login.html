@@ -1,0 +1,15 @@
+<div class="container">
+    <form class="form-signin" onsubmit="return false" on-submit="login" action="">
+        <h2 class="form-signin-heading">Please log in</h2>
+
+        <label for="inputUrl" class="sr-only">Cacus API endpoint URL</label>
+        <input type="url" id="inputUrl" class="form-control" placeholder="Cacus API endpoint URL"
+            required autofocus value="{{cacus_url}}">
+
+        <label for="inputToken" class="sr-only">Token</label>
+        <input type="password" id="inputToken" class="form-control" placeholder="Token"
+            required value="{{cacus_token}}">
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+    </form>
+</div>
