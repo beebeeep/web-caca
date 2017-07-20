@@ -5,7 +5,7 @@
     "tasks": [
         {
             "taskName": "preview",
-            "command": "npm run build && open index.html",
+            "command": "npm run build",
             "type": "shell",
             "group": {
                 "kind": "build",
