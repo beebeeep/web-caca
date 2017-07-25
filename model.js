@@ -9,8 +9,13 @@ emitter.getCredentials = getCredentials;
 
 function saveCredentials(url, token) {
     console.log("Api %s, token %s", url, token);
-    Cookie.set("cacusURL", url, {expires: 7});
-    Cookie.set("cacusToken", token, {expires: 7, secure: window.location.hostname != "localhost"});
+    if (token == null) {
+        // keep cacusURL, but remove token
+        Cookie.remove('cacusToken');
+    } else {
+        Cookie.set("cacusURL", url, {expires: 7});
+        Cookie.set("cacusToken", token, {expires: 7, secure: window.location.hostname != "localhost"});
+    }
 }
 
 function getCredentials() {

@@ -8,13 +8,18 @@ module.exports = function (stateRouter) {
         template: fs.readFileSync('login/login.html').toString(),
         activate: function (context) {
             var ractive = context.domApi;
-            console.log(model.getCredentials());
-            ractive.set('cacus_url', model.getCredentials().url);
-            ractive.on('login', function () {
-                model.saveCredentials(ractive.get('cacus_url'), ractive.get('cacus_token'));
+            var credentials = model.getCredentials();
+            console.log("Credentials: %s", credentials);
+            if (credentials.token) {
                 stateRouter.go('app');
-                return false;
-            })
+            } else {
+                ractive.set('cacus_url', model.getCredentials().url);
+                ractive.on('login', function () {
+                    model.saveCredentials(ractive.get('cacus_url'), ractive.get('cacus_token'));
+                    stateRouter.go('app');
+                    return false;
+                })
+            }
         }
     })
 }
