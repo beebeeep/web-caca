@@ -1,5 +1,6 @@
-var fs = require('fs')
-var model = require('../../model.js')
+var fs = require('fs');
+var all = require('async-all');
+var model = require('../../model.js');
 
 module.exports = function (stateRouter) {
     stateRouter.addState({
@@ -7,12 +8,16 @@ module.exports = function (stateRouter) {
         route: '/distro',
         template: fs.readFileSync('app/distro/distro.html').toString(),
         resolve: function resolve(data, params, cb) {
-            cb(null, {});
+            var creds = model.getCredentials();
+            all({
+                distros: model.getDistros.bind(null, creds)
+            }, cb);
         },
         activate: function (context) {
+            console.log("asdsadsad");
             var ractive = context.domApi;
-            ractive.set('cacus_url', context.content.credentials.url);
-            ractive.set('cacus_user', context.content.credentials.token);
+            console.log("Found distros: %s", context.content.distros);
+            ractive.set('distros', context.content.distros);
         }
     })
 }

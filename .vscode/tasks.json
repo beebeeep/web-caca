@@ -5,7 +5,7 @@
     "tasks": [
         {
             "taskName": "preview",
-            "command": "npm run build",
+            "command": "npm run debug",
             "type": "shell",
             "group": {
                 "kind": "build",
