@@ -13,11 +13,11 @@ emitter.getDistros = getDistros;
 module.exports = {
     saveCredentials: saveCredentials,
     getCredentials: getCredentials,
-    getDistros: getDistros
+    getDistros: getDistros,
+    getDistro: getDistro,
 };
 
 function saveCredentials(url, token) {
-    console.log("Api %s, token %s", url, token);
     if (token == null) {
         // keep cacusURL, but remove token
         Cookie.remove('cacusToken');
@@ -45,6 +45,21 @@ function getDistros(creds, cb) {
     }).then(function(d) {
         if (d.success) {
             cb(null, d.result);
+        }
+    }).catch(function(err) {return null});
+}
+
+function getDistro(distro, creds, cb) {
+    var headers = new Headers({
+        'Authorization': 'Bearer ' + creds.token
+    });
+    var url = creds.url + '/api/v1/distro/show/' + distro;
+    var opts = { method: 'GET', mode: 'cors', headers: headers };
+    fetch(url, opts).then(function(response) {
+        return response.json();
+    }).then(function(d) {
+        if (d.success) {
+            cb(null, d.result[0]);
         }
     }).catch(function(err) {return null});
 }

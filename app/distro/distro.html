@@ -1,10 +1,10 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li><h3>Distributions</h3></li>
                 {{#each distros}}
-                <li><a href="#">{{distro}}</a></li>
+                <li><a href="{{ makePath('app.distro.browse', { distroName: distro }) }}">{{distro}}</a></li>
                 {{else}}
                 <li class="disabled">Oh, no distros found</li>
                 {{/each}}
@@ -22,7 +22,10 @@
                 <li><a href="">Another nav item</a></li>
             </ul-->
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-10 col-sm-offset-2 main">
+            <ui-view></ui-view>
+        </div>
+        <!--div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Dashboard</h1>
 
             <div class="row placeholders">
@@ -180,6 +183,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div-->
     </div>
 </div>

@@ -6,6 +6,7 @@ module.exports = function (stateRouter) {
     stateRouter.addState({
         name: 'app.distro',
         route: '/distro',
+        defaultChild: 'no-distro',
         template: fs.readFileSync('app/distro/distro.html').toString(),
         resolve: function resolve(data, params, cb) {
             var creds = model.getCredentials();
@@ -14,10 +15,10 @@ module.exports = function (stateRouter) {
             }, cb);
         },
         activate: function (context) {
-            console.log("asdsadsad");
             var ractive = context.domApi;
-            console.log("Found distros: %s", context.content.distros);
             ractive.set('distros', context.content.distros);
         }
-    })
+    });
+
+    require('./browse/browse')(stateRouter);
 }
