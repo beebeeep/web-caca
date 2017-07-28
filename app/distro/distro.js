@@ -16,6 +16,7 @@ module.exports = function (stateRouter) {
         },
         activate: function (context) {
             var ractive = context.domApi;
+
             ractive.set('distros', context.content.distros);
         }
     });

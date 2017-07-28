@@ -1,0 +1,20 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Package</th>
+                <th>Version</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each packages}}
+            <tr>
+                <td>{{package}}</td>
+                <td>{{version}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
