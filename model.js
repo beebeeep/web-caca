@@ -15,7 +15,7 @@ module.exports = {
     getCredentials: getCredentials,
     getDistros: getDistros,
     getDistro: getDistro,
-    getPackages: getPackages,
+    searchPackages: searchPackages,
 };
 
 function saveCredentials(url, token) {
@@ -45,7 +45,10 @@ function getDistros(creds, cb) {
         return response.json();
     }).then(function(d) {
         if (d.success) {
-            cb(null, d.result);
+            cb(null, d.result.reduce(function(a, x) {
+                a[x.distro] = x;
+                return a;
+            }, {}));
         }
     }).catch(function(err) {return null});
 }
@@ -65,13 +68,13 @@ function getDistro(distro, creds, cb) {
     }).catch(function(err) {return null});
 }
 
-function getPackages(distro, component, creds, cb) {
+function searchPackages(distro, selector, creds, cb) {
     var headers = new Headers({
         'Authorization': 'Bearer ' + creds.token,
         'Content-Type': 'application/json',
     });
     var url = creds.url + '/api/v1/package/search/' + distro;
-    var opts = { method: 'POST', body: JSON.stringify({pkg: '.', comp: component}), mode: 'cors', headers: headers };
+    var opts = { method: 'POST', body: JSON.stringify(selector), mode: 'cors', headers: headers };
     fetch(url, opts).then(function(response) {
         return response.json();
     }).then(function(d) {

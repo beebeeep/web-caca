@@ -1,0 +1,41 @@
+{{#with distro}}
+<h1 class="page-header">Distro {{distro}}: {{description}}</h1>
+
+<div class="row">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{packages}}</h1>
+        <p class="lead">Total packages</p>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{  formatTS(lastupdated) }}</h1>
+        <p class="lead">Last updated</p>
+    </div>
+</div>
+
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li role="presentation" as-active="'app.browse.search', {}, 'active'">
+            <a href="{{ makePath('app.distro.browse.search', {distroName: distro}) }}">Search </a>
+        </li>
+        <li role="presentation" as-active="'app.browse.upload', {}, 'active'">
+            <a href="{{ makePath('app.distro.browse.upload', {distroName: distro}) }}">Upload</a>
+        </li>
+    </ul>
+</div>
+<!--div class="row">
+    <form onsubmit="return false" on-submit="searchPackages" role="search" class="navbar-form navbar-left">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Package name" value="{{pkgName}}">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
+</div-->
+<!--h2 class="sub-header">Packages</h2>
+<ul class = "nav nav-pills" role="tablist">
+    {{#each components}}
+    <li role="presentation" as-active="'app.browse.packages', {component: this}, 'active'">
+        <a href="{{ makePath('app.browse.packages', {distroName: distro, component: this}) }}">{{this}} <span class="badge">138</span></a></li>
+    {{/each}}
+</ul -->
+{{/with}}
+<ui-view></ui-view>

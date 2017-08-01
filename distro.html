@@ -1,185 +1,102 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Caca!</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-            crossorigin="anonymous">
-		<link href="styles/style.css" rel="stylesheet">
-	</head>
-	<body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="#">Export</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="">Nav item</a></li>
-                <li><a href="">Nav item again</a></li>
-                <li><a href="">One more nav</a></li>
-                <li><a href="">Another nav item</a></li>
-                <li><a href="">More navigation</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="">Nav item again</a></li>
-                <li><a href="">One more nav</a></li>
-                <li><a href="">Another nav item</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Distro test-vcad: description</h1>
 
-            <div class="row">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h1>4543</h1>
-                    <h4>Total packages</h4>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h1>12 June 1230</h1>
-                    <h4>Last updated</h4>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <title>Caca!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="styles/style.css" rel="stylesheet">
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>                <a class="navbar-brand" href="#">Cacus at https://cacus.miga.me.uk/debian</a></div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <p class="navbar-text">Logged in as midanil</p>
+                    </li>
+                    <li><a href="#/login">Logout</a></li>
+                </ul>
             </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li>
+                        <h3>Distributions</h3>
+                    </li>
+                    <li class="active"><a href="#/app/distro/common">common</a></li>
+                    <li class=""><a href="#/app/distro/trusty-security">trusty-security</a></li>
+                    <li class=""><a href="#/app/distro/trusty-updates">trusty-updates</a></li>
+                    <li class=""><a href="#/app/distro/cacus">cacus</a></li>
+                    <li class=""><a href="#/app/distro/cacus-jessie">cacus-jessie</a></li>
+                    <li><a href="#/app/distro/common%40snap1%40snap1">common@snap1@snap1</a></li>
+                    <li><a href="#/app/distro/common%40snapp2">common@snapp2</a></li>
+                    <li><a href="#/app/distro/common%40snap2">common@snap2</a></li>
+                    <li><a href="#/app/distro/common%40snap1">common@snap1</a></li>
+                    <li><a href="#/app/distro/test-vcad">test-vcad</a></li>
+                    <li><a href="#/app/distro/stable-updates">stable-updates</a></li>
+                    <li><a href="#/app/distro/jessie-updates">jessie-updates</a></li>
+                    <li class=""><a href="#/app/distro/jessie">jessie</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-10 col-sm-offset-2 main">
+                <div class="row"><h1 class="page-header">Distro common: test</h1></div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <h1>12</h1>
+                        <p class="lead">Total packages</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <h1>17 days ago</h1>
+                        <p class="lead">Last updated</p>
+                    </div>
+                </div>
 
-            <h2 class="sub-header">Packages</h2>
-            <ul class = "nav nav-pills" role="tablist">
-                <li role="presentation" class="active"><a href="#">unstable <span class="badge">138</span></a></li>
-                <li role="presentation"><a href="#">testing <span class="badge">45</span></a></li>
-                <li role="presentation"><a href="#">stable <span class="badge">32</span></a></li>
-            </ul>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1,001</td>
-                            <td>Lorem</td>
-                            <td>ipsum</td>
-                            <td>dolor</td>
-                            <td>sit</td>
-                        </tr>
-                        <tr>
-                            <td>1,002</td>
-                            <td>amet</td>
-                            <td>consectetur</td>
-                            <td>adipiscing</td>
-                            <td>elit</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>Integer</td>
-                            <td>nec</td>
-                            <td>odio</td>
-                            <td>Praesent</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>libero</td>
-                            <td>Sed</td>
-                            <td>cursus</td>
-                            <td>ante</td>
-                        </tr>
-                        <tr>
-                            <td>1,004</td>
-                            <td>dapibus</td>
-                            <td>diam</td>
-                            <td>Sed</td>
-                            <td>nisi</td>
-                        </tr>
-                        <tr>
-                            <td>1,005</td>
-                            <td>Nulla</td>
-                            <td>quis</td>
-                            <td>sem</td>
-                            <td>at</td>
-                        </tr>
-                        <tr>
-                            <td>1,006</td>
-                            <td>nibh</td>
-                            <td>elementum</td>
-                            <td>imperdiet</td>
-                            <td>Duis</td>
-                        </tr>
-                        <tr>
-                            <td>1,007</td>
-                            <td>sagittis</td>
-                            <td>ipsum</td>
-                            <td>Praesent</td>
-                            <td>mauris</td>
-                        </tr>
-                        <tr>
-                            <td>1,008</td>
-                            <td>Fusce</td>
-                            <td>nec</td>
-                            <td>tellus</td>
-                            <td>sed</td>
-                        </tr>
-                        <tr>
-                            <td>1,009</td>
-                            <td>augue</td>
-                            <td>semper</td>
-                            <td>porta</td>
-                            <td>Mauris</td>
-                        </tr>
-                        <tr>
-                            <td>1,010</td>
-                            <td>massa</td>
-                            <td>Vestibulum</td>
-                            <td>lacinia</td>
-                            <td>arcu</td>
-                        </tr>
-                        <tr>
-                            <td>1,011</td>
-                            <td>eget</td>
-                            <td>nulla</td>
-                            <td>Class</td>
-                            <td>aptent</td>
-                        </tr>
-                        <tr>
-                            <td>1,012</td>
-                            <td>taciti</td>
-                            <td>sociosqu</td>
-                            <td>ad</td>
-                            <td>litora</td>
-                        </tr>
-                        <tr>
-                            <td>1,013</td>
-                            <td>torquent</td>
-                            <td>per</td>
-                            <td>conubia</td>
-                            <td>nostra</td>
-                        </tr>
-                        <tr>
-                            <td>1,014</td>
-                            <td>per</td>
-                            <td>inceptos</td>
-                            <td>himenaeos</td>
-                            <td>Curabitur</td>
-                        </tr>
-                        <tr>
-                            <td>1,015</td>
-                            <td>sodales</td>
-                            <td>ligula</td>
-                            <td>in</td>
-                            <td>libero</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <div class="row">
+                    <ul class="nav nav-tabs">
+                                <li role="presentation" class="active"><a href="#/app/distro/common/unstable">Search </a></li>
+                                <li role="presentation"><a href="#/app/distro/common/testing">Upload</a></li>
+                    </ul>
+                </div>
+
+                <div class="row row-spaced">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" id="pkgNameInput" class="form-control" placeholder="Package name regex">
+                            <button type="submit" class="btn btn-default btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Package</th>
+                                <th>Version</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>hello-world</td>
+                                <td>0.1-1ubuntu16</td>
+                                <td>hello-world, main package &lt;insert long description, indented with spaces&gt;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-	</body>
+</body>
 </html>

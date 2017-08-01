@@ -2,8 +2,16 @@ var StateRouter = require('abstract-state-router')
 var Ractive = require('ractive')
 var ractiveRenderer = require('ractive-state-router')
 var domready = require('domready')
+var moment = require('moment');
 
-var stateRouter = StateRouter(ractiveRenderer(Ractive, {}), 'body')
+// setup ractive and some helpers 
+var stateRouter = StateRouter(ractiveRenderer(Ractive, {
+		data: {
+			formatTS: function (ts) {
+						return moment(ts).fromNow();
+			}
+		}
+	}), 'body')
 
 stateRouter.setMaxListeners(20)
 

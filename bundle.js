@@ -44,33 +44,24 @@ module.exports = function (stateRouter) {
 (function (Buffer){
 
 var all = require('async-all');
-var model = require('../../../model.js');
-var moment = require('moment');
+var model = require('../../model.js');
 
 module.exports = function (stateRouter) {
     stateRouter.addState({
         name: 'app.distro.browse',
         route: '/:distroName',
-        template: Buffer("PGgxIGNsYXNzPSJwYWdlLWhlYWRlciI+RGlzdHJvIHt7ZGlzdHJvLmRpc3Ryb319OiB7e2Rpc3Ryby5kZXNjcmlwdGlvbn19PC9oMT4NCg0KPGRpdiBjbGFzcz0icm93Ij4NCiAgICA8ZGl2IGNsYXNzPSJjb2wteHMtNiBjb2wtc20tMyBwbGFjZWhvbGRlciI+DQogICAgICAgIDxoMT57e2Rpc3Ryby5wYWNrYWdlc319PC9oMT4NCiAgICAgICAgPGg0PlRvdGFsIHBhY2thZ2VzPC9oND4NCiAgICA8L2Rpdj4NCiAgICA8ZGl2IGNsYXNzPSJjb2wteHMtNiBjb2wtc20tMyBwbGFjZWhvbGRlciI+DQogICAgICAgIDxoMT57eyAgZm9ybWF0RGF0ZShkaXN0cm8ubGFzdHVwZGF0ZWQpIH19PC9oMT4NCiAgICAgICAgPGg0Pkxhc3QgdXBkYXRlZDwvaDQ+DQogICAgPC9kaXY+DQo8L2Rpdj4NCg0KPGgyIGNsYXNzPSJzdWItaGVhZGVyIj5QYWNrYWdlczwvaDI+DQo8dWwgY2xhc3MgPSAibmF2IG5hdi1waWxscyIgcm9sZT0idGFibGlzdCI+DQogICAge3sjZWFjaCBkaXN0cm8uY29tcG9uZW50c319DQogICAgPGxpIHJvbGU9InByZXNlbnRhdGlvbiIgYXMtYWN0aXZlPSInYXBwLmRpc3Ryby5icm93c2UucGFja2FnZXMnLCB7Y29tcG9uZW50OiB0aGlzfSwgJ2FjdGl2ZSciPg0KICAgICAgICA8YSBocmVmPSJ7eyBtYWtlUGF0aCgnYXBwLmRpc3Ryby5icm93c2UucGFja2FnZXMnLCB7ZGlzdHJvTmFtZTogZGlzdHJvLmRpc3RybywgY29tcG9uZW50OiB0aGlzfSkgfX0iPnt7dGhpc319IDxzcGFuIGNsYXNzPSJiYWRnZSI+MTM4PC9zcGFuPjwvYT48L2xpPg0KICAgIHt7L2VhY2h9fQ0KPC91bD4NCjx1aS12aWV3PjwvdWktdmlldz4=","base64").toString(),
+        defaultChild: 'search',
+        template: Buffer("e3sjd2l0aCBkaXN0cm99fQ0KPGgxIGNsYXNzPSJwYWdlLWhlYWRlciI+RGlzdHJvIHt7ZGlzdHJvfX06IHt7ZGVzY3JpcHRpb259fTwvaDE+DQoNCjxkaXYgY2xhc3M9InJvdyI+DQogICAgPGRpdiBjbGFzcz0iY29sLXhzLTYgY29sLXNtLTMgcGxhY2Vob2xkZXIiPg0KICAgICAgICA8aDE+e3twYWNrYWdlc319PC9oMT4NCiAgICAgICAgPHAgY2xhc3M9ImxlYWQiPlRvdGFsIHBhY2thZ2VzPC9wPg0KICAgIDwvZGl2Pg0KICAgIDxkaXYgY2xhc3M9ImNvbC14cy02IGNvbC1zbS0zIHBsYWNlaG9sZGVyIj4NCiAgICAgICAgPGgxPnt7ICBmb3JtYXRUUyhsYXN0dXBkYXRlZCkgfX08L2gxPg0KICAgICAgICA8cCBjbGFzcz0ibGVhZCI+TGFzdCB1cGRhdGVkPC9wPg0KICAgIDwvZGl2Pg0KPC9kaXY+DQoNCjxkaXYgY2xhc3M9InJvdyI+DQogICAgPHVsIGNsYXNzPSJuYXYgbmF2LXRhYnMiPg0KICAgICAgICA8bGkgcm9sZT0icHJlc2VudGF0aW9uIiBhcy1hY3RpdmU9IidhcHAuYnJvd3NlLnNlYXJjaCcsIHt9LCAnYWN0aXZlJyI+DQogICAgICAgICAgICA8YSBocmVmPSJ7eyBtYWtlUGF0aCgnYXBwLmRpc3Ryby5icm93c2Uuc2VhcmNoJywge2Rpc3Ryb05hbWU6IGRpc3Ryb30pIH19Ij5TZWFyY2ggPC9hPg0KICAgICAgICA8L2xpPg0KICAgICAgICA8bGkgcm9sZT0icHJlc2VudGF0aW9uIiBhcy1hY3RpdmU9IidhcHAuYnJvd3NlLnVwbG9hZCcsIHt9LCAnYWN0aXZlJyI+DQogICAgICAgICAgICA8YSBocmVmPSJ7eyBtYWtlUGF0aCgnYXBwLmRpc3Ryby5icm93c2UudXBsb2FkJywge2Rpc3Ryb05hbWU6IGRpc3Ryb30pIH19Ij5VcGxvYWQ8L2E+DQogICAgICAgIDwvbGk+DQogICAgPC91bD4NCjwvZGl2Pg0KPCEtLWRpdiBjbGFzcz0icm93Ij4NCiAgICA8Zm9ybSBvbnN1Ym1pdD0icmV0dXJuIGZhbHNlIiBvbi1zdWJtaXQ9InNlYXJjaFBhY2thZ2VzIiByb2xlPSJzZWFyY2giIGNsYXNzPSJuYXZiYXItZm9ybSBuYXZiYXItbGVmdCI+DQogICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSJQYWNrYWdlIG5hbWUiIHZhbHVlPSJ7e3BrZ05hbWV9fSI+DQogICAgICAgIDwvZGl2Pg0KICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9ImJ0biBidG4tZGVmYXVsdCI+U2VhcmNoPC9idXR0b24+DQogICAgPC9mb3JtPg0KPC9kaXYtLT4NCjwhLS1oMiBjbGFzcz0ic3ViLWhlYWRlciI+UGFja2FnZXM8L2gyPg0KPHVsIGNsYXNzID0gIm5hdiBuYXYtcGlsbHMiIHJvbGU9InRhYmxpc3QiPg0KICAgIHt7I2VhY2ggY29tcG9uZW50c319DQogICAgPGxpIHJvbGU9InByZXNlbnRhdGlvbiIgYXMtYWN0aXZlPSInYXBwLmJyb3dzZS5wYWNrYWdlcycsIHtjb21wb25lbnQ6IHRoaXN9LCAnYWN0aXZlJyI+DQogICAgICAgIDxhIGhyZWY9Int7IG1ha2VQYXRoKCdhcHAuYnJvd3NlLnBhY2thZ2VzJywge2Rpc3Ryb05hbWU6IGRpc3RybywgY29tcG9uZW50OiB0aGlzfSkgfX0iPnt7dGhpc319IDxzcGFuIGNsYXNzPSJiYWRnZSI+MTM4PC9zcGFuPjwvYT48L2xpPg0KICAgIHt7L2VhY2h9fQ0KPC91bCAtLT4NCnt7L3dpdGh9fQ0KPHVpLXZpZXc+PC91aS12aWV3Pg0K","base64").toString(),
         resolve: function(data, parameters, cb) {
-            var creds = model.getCredentials();
-            all({
-                distro: model.getDistro.bind(null, parameters.distroName, creds)
-            }, cb);
+            cb(null);
         },
         activate: function(context) {
+            console.log("lalala");
             ractive = context.domApi;
 
-            ractive.data.formatDate = function (ts) {
-                    return moment(ts).fromNow();
-                }
+            // save current distro (context.content.distros inherited from parent state)
+            context.content.distro = context.content.distros[context.parameters.distroName];
             ractive.set('distro', context.content.distro);
-
-            
-            if(stateRouter.stateIsActive('app.distro.browse')) {
-                stateRouter.go('app.distro.browse.packages', {distroName: context.content.distro.distro, component: context.content.distro.components[0]});
-            }
-            
         }
     });
 
@@ -81,23 +72,52 @@ module.exports = function (stateRouter) {
     });
 
     stateRouter.addState({
-        name: 'app.distro.browse.packages',
-        route: '/:component',
-        template: Buffer("PGRpdiBjbGFzcz0idGFibGUtcmVzcG9uc2l2ZSI+DQogICAgPHRhYmxlIGNsYXNzPSJ0YWJsZSB0YWJsZS1zdHJpcGVkIj4NCiAgICAgICAgPHRoZWFkPg0KICAgICAgICAgICAgPHRyPg0KICAgICAgICAgICAgICAgIDx0aD5QYWNrYWdlPC90aD4NCiAgICAgICAgICAgICAgICA8dGg+VmVyc2lvbjwvdGg+DQogICAgICAgICAgICAgICAgPHRoPkRlc2NyaXB0aW9uPC90aD4NCiAgICAgICAgICAgIDwvdHI+DQogICAgICAgIDwvdGhlYWQ+DQogICAgICAgIDx0Ym9keT4NCiAgICAgICAgICAgIHt7I2VhY2ggcGFja2FnZXN9fQ0KICAgICAgICAgICAgPHRyPg0KICAgICAgICAgICAgICAgIDx0ZD57e3BhY2thZ2V9fTwvdGQ+DQogICAgICAgICAgICAgICAgPHRkPnt7dmVyc2lvbn19PC90ZD4NCiAgICAgICAgICAgICAgICA8dGQ+e3tkZXNjcmlwdGlvbn19PC90ZD4NCiAgICAgICAgICAgIDwvdHI+DQogICAgICAgICAgICB7ey9lYWNofX0NCiAgICAgICAgPC90Ym9keT4NCiAgICA8L3RhYmxlPg0KPC9kaXY+","base64").toString(),
+        name: 'app.distro.browse.search',
+        route: '/search/:pkgNameRegex?',
+        template: Buffer("PGRpdiBjbGFzcz0icm93IHJvdy1zcGFjZWQiPg0KICAgIDxmb3JtIGNsYXNzPSJmb3JtLWlubGluZSIgb25zdWJtaXQ9InJldHVybiBmYWxzZSIgb24tc3VibWl0PSJzZWFyY2hQYWNrYWdlcyI+DQogICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSJQYWNrYWdlIG5hbWUgcmVnZXgiIHZhbHVlPSJ7e3BrZ05hbWV9fSI+DQogICAgICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9ImJ0biBidG4tZGVmYXVsdCBidG4tcHJpbWFyeSI+U2VhcmNoPC9idXR0b24+DQogICAgICAgIDwvZGl2Pg0KICAgIDwvZm9ybT4NCjwvZGl2Pg0KDQo8ZGl2IGNsYXNzPSJyb3cgdGFibGUtcmVzcG9uc2l2ZSI+DQogICAgPHRhYmxlIGNsYXNzPSJ0YWJsZSB0YWJsZS1zdHJpcGVkIj4NCiAgICAgICAgPHRoZWFkPg0KICAgICAgICAgICAgPHRyPg0KICAgICAgICAgICAgICAgIDx0aD5QYWNrYWdlPC90aD4NCiAgICAgICAgICAgICAgICA8dGg+VmVyc2lvbjwvdGg+DQogICAgICAgICAgICAgICAgPHRoPkRlc2NyaXB0aW9uPC90aD4NCiAgICAgICAgICAgICAgICA8dGg+Q29tcG9uZW50czwvdGg+DQogICAgICAgICAgICA8L3RyPg0KICAgICAgICA8L3RoZWFkPg0KICAgICAgICA8dGJvZHk+DQogICAgICAgICAgICB7eyNlYWNoIHBhY2thZ2VzfX0NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgICA8dGQ+e3twYWNrYWdlfX08L3RkPg0KICAgICAgICAgICAgICAgIDx0ZD57e3ZlcnNpb259fTwvdGQ+DQogICAgICAgICAgICAgICAgPHRkPnt7ZGVzY3JpcHRpb259fTwvdGQ+DQogICAgICAgICAgICAgICAgPHRkPnt7Y29tcG9uZW50cy5qb2luKCcsICcpfX08L3RkPg0KICAgICAgICAgICAgPC90cj4NCiAgICAgICAgICAgIHt7L2VhY2h9fQ0KICAgICAgICA8L3Rib2R5Pg0KICAgIDwvdGFibGU+DQo8L2Rpdj4=","base64").toString(),
         resolve: function(data, parameters, cb) {
             var creds = model.getCredentials();
-            all({
-                packages: model.getPackages.bind(null, parameters.distroName, parameters.component, creds)
-            }, cb);
+            if (parameters.pkgNameRegex === undefined) {
+                cb(null, {searchResult: []});
+            } else {
+                all({
+                    searchResult: model.searchPackages.bind(null, parameters.distroName, {pkg: parameters.pkgNameRegex}, creds)
+                }, cb);
+            }
         },
         activate: function(context) {
+            var creds = model.getCredentials();
             ractive = context.domApi;
-            ractive.set('packages', context.content.packages[context.parameters.distroName]);
+            ractive.set('pkgName', context.parameters.pkgNameRegex)
+            ractive.on('searchPackages', function() {
+                stateRouter.go('app.distro.browse.search', {distroName: context.parameters.distroName, pkgNameRegex: ractive.get('pkgName')})
+            });
+            ractive.set('packages', context.content.searchResult[context.parameters.distroName]);
+        }
+    });
+
+    stateRouter.addState({
+        name: 'app.distro.browse.upload',
+        route: '/upload',
+        template: Buffer("PGRpdiBjbGFzcz0icm93IHJvdy1zcGFjZWQiPg0KICAgIDxmb3JtIGNsYXNzPSJmb3JtLWlubGluZSIgb25zdWJtaXQ9InJldHVybiBmYWxzZSIgb24tc3VibWl0PSJzZWFyY2hQYWNrYWdlcyI+DQogICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSJQYWNrYWdlIG5hbWUgcmVnZXgiIHZhbHVlPSJ7e3BrZ05hbWV9fSI+DQogICAgICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9ImJ0biBidG4tZGVmYXVsdCBidG4tcHJpbWFyeSI+U2VhcmNoPC9idXR0b24+DQogICAgICAgIDwvZGl2Pg0KICAgIDwvZm9ybT4NCjwvZGl2Pg0KDQo8ZGl2IGNsYXNzPSJyb3cgdGFibGUtcmVzcG9uc2l2ZSI+DQogICAgPHRhYmxlIGNsYXNzPSJ0YWJsZSB0YWJsZS1zdHJpcGVkIj4NCiAgICAgICAgPHRoZWFkPg0KICAgICAgICAgICAgPHRyPg0KICAgICAgICAgICAgICAgIDx0aD5QYWNrYWdlPC90aD4NCiAgICAgICAgICAgICAgICA8dGg+VmVyc2lvbjwvdGg+DQogICAgICAgICAgICAgICAgPHRoPkRlc2NyaXB0aW9uPC90aD4NCiAgICAgICAgICAgICAgICA8dGg+Q29tcG9uZW50czwvdGg+DQogICAgICAgICAgICA8L3RyPg0KICAgICAgICA8L3RoZWFkPg0KICAgICAgICA8dGJvZHk+DQogICAgICAgICAgICB7eyNlYWNoIHBhY2thZ2VzfX0NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgICA8dGQ+e3twYWNrYWdlfX08L3RkPg0KICAgICAgICAgICAgICAgIDx0ZD57e3ZlcnNpb259fTwvdGQ+DQogICAgICAgICAgICAgICAgPHRkPnt7ZGVzY3JpcHRpb259fTwvdGQ+DQogICAgICAgICAgICAgICAgPHRkPnt7Y29tcG9uZW50cy5qb2luKCcsICcpfX08L3RkPg0KICAgICAgICAgICAgPC90cj4NCiAgICAgICAgICAgIHt7L2VhY2h9fQ0KICAgICAgICA8L3Rib2R5Pg0KICAgIDwvdGFibGU+DQo8L2Rpdj4=","base64").toString(),
+        resolve: function(data, parameters, cb) {
+            cb(null);
+        },
+        activate: function(context) {
+            var creds = model.getCredentials();
+            ractive = context.domApi;
+            ractive.on('searchPackages', function() {
+                model.searchPackages(
+                    context.parameters.distroName, {pkg: ractive.get('pkgName')}, creds, 
+                    function (err, d) {
+                        ractive.set('packages', d[context.parameters.distroName]);
+                });
+            });
         }
     });
 }
 }).call(this,require("buffer").Buffer)
-},{"../../../model.js":6,"async-all":16,"buffer":18,"moment":32}],3:[function(require,module,exports){
+},{"../../model.js":6,"async-all":16,"buffer":18}],3:[function(require,module,exports){
 (function (Buffer){
 
 var all = require('async-all');
@@ -122,16 +142,24 @@ module.exports = function (stateRouter) {
         }
     });
 
-    require('./browse/browse')(stateRouter);
+    require('./browse')(stateRouter);
 }
 }).call(this,require("buffer").Buffer)
-},{"../../model.js":6,"./browse/browse":2,"async-all":16,"buffer":18}],4:[function(require,module,exports){
+},{"../../model.js":6,"./browse":2,"async-all":16,"buffer":18}],4:[function(require,module,exports){
 var StateRouter = require('abstract-state-router')
 var Ractive = require('ractive')
 var ractiveRenderer = require('ractive-state-router')
 var domready = require('domready')
+var moment = require('moment');
 
-var stateRouter = StateRouter(ractiveRenderer(Ractive, {}), 'body')
+// setup ractive and some helpers 
+var stateRouter = StateRouter(ractiveRenderer(Ractive, {
+		data: {
+			formatTS: function (ts) {
+						return moment(ts).fromNow();
+			}
+		}
+	}), 'body')
 
 stateRouter.setMaxListeners(20)
 
@@ -142,7 +170,7 @@ domready(function() {
 	stateRouter.evaluateCurrentRoute('login')
 })
 
-},{"./app/app":1,"./login/login":5,"abstract-state-router":8,"domready":21,"ractive":41,"ractive-state-router":40}],5:[function(require,module,exports){
+},{"./app/app":1,"./login/login":5,"abstract-state-router":8,"domready":21,"moment":32,"ractive":41,"ractive-state-router":40}],5:[function(require,module,exports){
 (function (Buffer){
 
 var model = require('../model.js')
@@ -188,7 +216,7 @@ module.exports = {
     getCredentials: getCredentials,
     getDistros: getDistros,
     getDistro: getDistro,
-    getPackages: getPackages,
+    searchPackages: searchPackages,
 };
 
 function saveCredentials(url, token) {
@@ -218,7 +246,10 @@ function getDistros(creds, cb) {
         return response.json();
     }).then(function(d) {
         if (d.success) {
-            cb(null, d.result);
+            cb(null, d.result.reduce(function(a, x) {
+                a[x.distro] = x;
+                return a;
+            }, {}));
         }
     }).catch(function(err) {return null});
 }
@@ -238,13 +269,13 @@ function getDistro(distro, creds, cb) {
     }).catch(function(err) {return null});
 }
 
-function getPackages(distro, component, creds, cb) {
+function searchPackages(distro, selector, creds, cb) {
     var headers = new Headers({
         'Authorization': 'Bearer ' + creds.token,
         'Content-Type': 'application/json',
     });
     var url = creds.url + '/api/v1/package/search/' + distro;
-    var opts = { method: 'POST', body: JSON.stringify({pkg: '.', comp: component}), mode: 'cors', headers: headers };
+    var opts = { method: 'POST', body: JSON.stringify(selector), mode: 'cors', headers: headers };
     fetch(url, opts).then(function(response) {
         return response.json();
     }).then(function(d) {

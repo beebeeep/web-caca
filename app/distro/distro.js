@@ -21,5 +21,5 @@ module.exports = function (stateRouter) {
         }
     });
 
-    require('./browse/browse')(stateRouter);
+    require('./browse')(stateRouter);
 }
