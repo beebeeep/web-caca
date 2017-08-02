@@ -51,12 +51,11 @@ module.exports = function (stateRouter) {
         name: 'app.distro.browse',
         route: '/:distroName',
         defaultChild: 'search',
-        template: Buffer("e3sjd2l0aCBkaXN0cm99fQ0KPGgxIGNsYXNzPSJwYWdlLWhlYWRlciI+RGlzdHJvIHt7ZGlzdHJvfX06IHt7ZGVzY3JpcHRpb259fTwvaDE+DQoNCjxkaXYgY2xhc3M9InJvdyI+DQogICAgPGRpdiBjbGFzcz0iY29sLXhzLTYgY29sLXNtLTMgcGxhY2Vob2xkZXIiPg0KICAgICAgICA8aDE+e3twYWNrYWdlc319PC9oMT4NCiAgICAgICAgPHAgY2xhc3M9ImxlYWQiPlRvdGFsIHBhY2thZ2VzPC9wPg0KICAgIDwvZGl2Pg0KICAgIDxkaXYgY2xhc3M9ImNvbC14cy02IGNvbC1zbS0zIHBsYWNlaG9sZGVyIj4NCiAgICAgICAgPGgxPnt7ICBmb3JtYXRUUyhsYXN0dXBkYXRlZCkgfX08L2gxPg0KICAgICAgICA8cCBjbGFzcz0ibGVhZCI+TGFzdCB1cGRhdGVkPC9wPg0KICAgIDwvZGl2Pg0KPC9kaXY+DQoNCjxkaXYgY2xhc3M9InJvdyI+DQogICAgPHVsIGNsYXNzPSJuYXYgbmF2LXRhYnMiPg0KICAgICAgICA8bGkgcm9sZT0icHJlc2VudGF0aW9uIiBhcy1hY3RpdmU9IidhcHAuYnJvd3NlLnNlYXJjaCcsIHt9LCAnYWN0aXZlJyI+DQogICAgICAgICAgICA8YSBocmVmPSJ7eyBtYWtlUGF0aCgnYXBwLmRpc3Ryby5icm93c2Uuc2VhcmNoJywge2Rpc3Ryb05hbWU6IGRpc3Ryb30pIH19Ij5TZWFyY2ggPC9hPg0KICAgICAgICA8L2xpPg0KICAgICAgICA8bGkgcm9sZT0icHJlc2VudGF0aW9uIiBhcy1hY3RpdmU9IidhcHAuYnJvd3NlLnVwbG9hZCcsIHt9LCAnYWN0aXZlJyI+DQogICAgICAgICAgICA8YSBocmVmPSJ7eyBtYWtlUGF0aCgnYXBwLmRpc3Ryby5icm93c2UudXBsb2FkJywge2Rpc3Ryb05hbWU6IGRpc3Ryb30pIH19Ij5VcGxvYWQ8L2E+DQogICAgICAgIDwvbGk+DQogICAgPC91bD4NCjwvZGl2Pg0KPCEtLWRpdiBjbGFzcz0icm93Ij4NCiAgICA8Zm9ybSBvbnN1Ym1pdD0icmV0dXJuIGZhbHNlIiBvbi1zdWJtaXQ9InNlYXJjaFBhY2thZ2VzIiByb2xlPSJzZWFyY2giIGNsYXNzPSJuYXZiYXItZm9ybSBuYXZiYXItbGVmdCI+DQogICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSJQYWNrYWdlIG5hbWUiIHZhbHVlPSJ7e3BrZ05hbWV9fSI+DQogICAgICAgIDwvZGl2Pg0KICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9ImJ0biBidG4tZGVmYXVsdCI+U2VhcmNoPC9idXR0b24+DQogICAgPC9mb3JtPg0KPC9kaXYtLT4NCjwhLS1oMiBjbGFzcz0ic3ViLWhlYWRlciI+UGFja2FnZXM8L2gyPg0KPHVsIGNsYXNzID0gIm5hdiBuYXYtcGlsbHMiIHJvbGU9InRhYmxpc3QiPg0KICAgIHt7I2VhY2ggY29tcG9uZW50c319DQogICAgPGxpIHJvbGU9InByZXNlbnRhdGlvbiIgYXMtYWN0aXZlPSInYXBwLmJyb3dzZS5wYWNrYWdlcycsIHtjb21wb25lbnQ6IHRoaXN9LCAnYWN0aXZlJyI+DQogICAgICAgIDxhIGhyZWY9Int7IG1ha2VQYXRoKCdhcHAuYnJvd3NlLnBhY2thZ2VzJywge2Rpc3Ryb05hbWU6IGRpc3RybywgY29tcG9uZW50OiB0aGlzfSkgfX0iPnt7dGhpc319IDxzcGFuIGNsYXNzPSJiYWRnZSI+MTM4PC9zcGFuPjwvYT48L2xpPg0KICAgIHt7L2VhY2h9fQ0KPC91bCAtLT4NCnt7L3dpdGh9fQ0KPHVpLXZpZXc+PC91aS12aWV3Pg0K","base64").toString(),
+        template: Buffer("e3sjd2l0aCBkaXN0cm99fQ0KPGgxIGNsYXNzPSJwYWdlLWhlYWRlciI+RGlzdHJvIHt7ZGlzdHJvfX06IHt7ZGVzY3JpcHRpb259fTwvaDE+DQoNCjxkaXYgY2xhc3M9InJvdyI+DQogICAgPGRpdiBjbGFzcz0iY29sLXhzLTYgY29sLXNtLTMgcGxhY2Vob2xkZXIiPg0KICAgICAgICA8aDE+e3twYWNrYWdlc319PC9oMT4NCiAgICAgICAgPHAgY2xhc3M9ImxlYWQiPlRvdGFsIHBhY2thZ2VzPC9wPg0KICAgIDwvZGl2Pg0KICAgIDxkaXYgY2xhc3M9ImNvbC14cy02IGNvbC1zbS0zIHBsYWNlaG9sZGVyIj4NCiAgICAgICAgPGgxPnt7ICBmb3JtYXRUUyhsYXN0dXBkYXRlZCkgfX08L2gxPg0KICAgICAgICA8cCBjbGFzcz0ibGVhZCI+TGFzdCB1cGRhdGVkPC9wPg0KICAgIDwvZGl2Pg0KPC9kaXY+DQoNCjxkaXYgY2xhc3M9InJvdyI+DQogICAgPHVsIGNsYXNzPSJuYXYgbmF2LXRhYnMiPg0KICAgICAgICA8bGkgcm9sZT0icHJlc2VudGF0aW9uIiBhcy1hY3RpdmU9IidhcHAuZGlzdHJvLmJyb3dzZS5zZWFyY2gnLCB7fSwgJ2FjdGl2ZSciPg0KICAgICAgICAgICAgPGEgaHJlZj0ie3sgbWFrZVBhdGgoJ2FwcC5kaXN0cm8uYnJvd3NlLnNlYXJjaCcsIHtkaXN0cm9OYW1lOiBkaXN0cm99KSB9fSI+U2VhcmNoIDwvYT4NCiAgICAgICAgPC9saT4NCiAgICAgICAgPGxpIHJvbGU9InByZXNlbnRhdGlvbiIgYXMtYWN0aXZlPSInYXBwLmRpc3Ryby5icm93c2UudXBsb2FkJywge30sICdhY3RpdmUnIj4NCiAgICAgICAgICAgIDxhIGhyZWY9Int7IG1ha2VQYXRoKCdhcHAuZGlzdHJvLmJyb3dzZS51cGxvYWQnLCB7ZGlzdHJvTmFtZTogZGlzdHJvfSkgfX0iPlVwbG9hZDwvYT4NCiAgICAgICAgPC9saT4NCiAgICA8L3VsPg0KPC9kaXY+DQo8IS0tZGl2IGNsYXNzPSJyb3ciPg0KICAgIDxmb3JtIG9uc3VibWl0PSJyZXR1cm4gZmFsc2UiIG9uLXN1Ym1pdD0ic2VhcmNoUGFja2FnZXMiIHJvbGU9InNlYXJjaCIgY2xhc3M9Im5hdmJhci1mb3JtIG5hdmJhci1sZWZ0Ij4NCiAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCI+DQogICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgY2xhc3M9ImZvcm0tY29udHJvbCIgcGxhY2Vob2xkZXI9IlBhY2thZ2UgbmFtZSIgdmFsdWU9Int7cGtnTmFtZX19Ij4NCiAgICAgICAgPC9kaXY+DQogICAgICAgIDxidXR0b24gdHlwZT0ic3VibWl0IiBjbGFzcz0iYnRuIGJ0bi1kZWZhdWx0Ij5TZWFyY2g8L2J1dHRvbj4NCiAgICA8L2Zvcm0+DQo8L2Rpdi0tPg0KPCEtLWgyIGNsYXNzPSJzdWItaGVhZGVyIj5QYWNrYWdlczwvaDI+DQo8dWwgY2xhc3MgPSAibmF2IG5hdi1waWxscyIgcm9sZT0idGFibGlzdCI+DQogICAge3sjZWFjaCBjb21wb25lbnRzfX0NCiAgICA8bGkgcm9sZT0icHJlc2VudGF0aW9uIiBhcy1hY3RpdmU9IidhcHAuYnJvd3NlLnBhY2thZ2VzJywge2NvbXBvbmVudDogdGhpc30sICdhY3RpdmUnIj4NCiAgICAgICAgPGEgaHJlZj0ie3sgbWFrZVBhdGgoJ2FwcC5icm93c2UucGFja2FnZXMnLCB7ZGlzdHJvTmFtZTogZGlzdHJvLCBjb21wb25lbnQ6IHRoaXN9KSB9fSI+e3t0aGlzfX0gPHNwYW4gY2xhc3M9ImJhZGdlIj4xMzg8L3NwYW4+PC9hPjwvbGk+DQogICAge3svZWFjaH19DQo8L3VsIC0tPg0Ke3svd2l0aH19DQo8dWktdmlldz48L3VpLXZpZXc+DQo=","base64").toString(),
         resolve: function(data, parameters, cb) {
             cb(null);
         },
         activate: function(context) {
-            console.log("lalala");
             ractive = context.domApi;
 
             // save current distro (context.content.distros inherited from parent state)
@@ -99,19 +98,34 @@ module.exports = function (stateRouter) {
     stateRouter.addState({
         name: 'app.distro.browse.upload',
         route: '/upload',
-        template: Buffer("PGRpdiBjbGFzcz0icm93IHJvdy1zcGFjZWQiPg0KICAgIDxmb3JtIGNsYXNzPSJmb3JtLWlubGluZSIgb25zdWJtaXQ9InJldHVybiBmYWxzZSIgb24tc3VibWl0PSJzZWFyY2hQYWNrYWdlcyI+DQogICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSJQYWNrYWdlIG5hbWUgcmVnZXgiIHZhbHVlPSJ7e3BrZ05hbWV9fSI+DQogICAgICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9ImJ0biBidG4tZGVmYXVsdCBidG4tcHJpbWFyeSI+U2VhcmNoPC9idXR0b24+DQogICAgICAgIDwvZGl2Pg0KICAgIDwvZm9ybT4NCjwvZGl2Pg0KDQo8ZGl2IGNsYXNzPSJyb3cgdGFibGUtcmVzcG9uc2l2ZSI+DQogICAgPHRhYmxlIGNsYXNzPSJ0YWJsZSB0YWJsZS1zdHJpcGVkIj4NCiAgICAgICAgPHRoZWFkPg0KICAgICAgICAgICAgPHRyPg0KICAgICAgICAgICAgICAgIDx0aD5QYWNrYWdlPC90aD4NCiAgICAgICAgICAgICAgICA8dGg+VmVyc2lvbjwvdGg+DQogICAgICAgICAgICAgICAgPHRoPkRlc2NyaXB0aW9uPC90aD4NCiAgICAgICAgICAgICAgICA8dGg+Q29tcG9uZW50czwvdGg+DQogICAgICAgICAgICA8L3RyPg0KICAgICAgICA8L3RoZWFkPg0KICAgICAgICA8dGJvZHk+DQogICAgICAgICAgICB7eyNlYWNoIHBhY2thZ2VzfX0NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgICA8dGQ+e3twYWNrYWdlfX08L3RkPg0KICAgICAgICAgICAgICAgIDx0ZD57e3ZlcnNpb259fTwvdGQ+DQogICAgICAgICAgICAgICAgPHRkPnt7ZGVzY3JpcHRpb259fTwvdGQ+DQogICAgICAgICAgICAgICAgPHRkPnt7Y29tcG9uZW50cy5qb2luKCcsICcpfX08L3RkPg0KICAgICAgICAgICAgPC90cj4NCiAgICAgICAgICAgIHt7L2VhY2h9fQ0KICAgICAgICA8L3Rib2R5Pg0KICAgIDwvdGFibGU+DQo8L2Rpdj4=","base64").toString(),
+        template: Buffer("PGRpdiBjbGFzcz0icm93IHJvdy1zcGFjZWQiPg0KICAgIDxkaXYgY2xhc3M9ImNvbC1sZy02Ij4NCiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IGlkPSJwa2dGaWxlSW5wdXQiIG11bHRpcGxlPSJ0cnVlIiBvbi1jaGFuZ2U9Ilsnc2VsZWN0RmlsZXMnLCBAbm9kZS5maWxlc10iIHR5cGU9ImZpbGUiIGNsYXNzPSJoaWRkZW4iPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIGFyaWEtbGFiZWw9Ii4uLiIgdmFsdWU9Int7IHNob3dGaWxlcyhwa2dGaWxlcykgfX0iIHR3by13YXk9ImZhbHNlIiBvbi1jbGljaz0iYnJvd3NlIiBwbGFjZWhvbGRlcj0iU2VsZWN0IGZpbGVzIiByZWFkb25seT4NCiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImlucHV0LWdyb3VwLWJ0biI+DQogICAgICAgICAgICAgICAgPCEtLWJ1dHRvbi0gdHlwZT0iYnV0dG9uIiBvbi1jbGljaz0iYnJvd3NlIiBjbGFzcz0iYnRuIGJ0bi1kZWZhdWx0Ij5Ccm93c2U8L2J1dHRvbi0tPg0KICAgICAgICAgICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuIGJ0bi1kZWZhdWx0IGRyb3Bkb3duLXRvZ2dsZSIgZGF0YS10b2dnbGU9ImRyb3Bkb3duIiBhcmlhLWhhc3BvcHVwPSJ0cnVlIiBhcmlhLWV4cGFuZGVkPSJmYWxzZSI+VXBsb2FkIHRvIDxzcGFuIGNsYXNzPSJjYXJldCI+PC9zcGFuPjwvYnV0dG9uPg0KICAgICAgICAgICAgICAgIDx1bCBjbGFzcz0iZHJvcGRvd24tbWVudSBkcm9wZG93bi1tZW51LXJpZ2h0Ij4NCiAgICAgICAgICAgICAgICAgICAge3sjZWFjaCBkaXN0cm8uY29tcG9uZW50c319DQogICAgICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSJ7e21ha2VQYXRoKCdhcHAuZGlzdHJvLmJyb3dzZS51cGxvYWQnLCB7ZGlzdHJvTmFtZTogZGlzdHJvLmRpc3Ryb30pfX0iIG9uLWNsaWNrPSJbJ3VwbG9hZEZpbGVzJywgdGhpc10iPnt7dGhpc319PC9hPjwvbGk+DQogICAgICAgICAgICAgICAgICAgIHt7L2VhY2h9fQ0KICAgICAgICAgICAgICAgIDwvdWw+DQogICAgICAgICAgICA8L2Rpdj48IS0tIC9idG4tZ3JvdXAgLS0+DQogICAgICAgIDwvZGl2PjwhLS0gL2lucHV0LWdyb3VwIC0tPg0KICAgIDwvZGl2PjwhLS0gLy5jb2wtbGctNiAtLT4NCjwvZGl2PjwhLS0gLy5yb3cgLS0+DQoNCjxkaXYgY2xhc3M9InJvdyByb3ctc3BhY2VkIj4NCiAgICA8ZGl2IGNsYXNzPSJjb2wtbGctNiI+IA0KICAgICAgICB7eyNlYWNoIHVwbG9hZFJlc3VsdH19DQogICAgICAgICAgICA8cD57e2ZpbGVuYW1lfX0gPHNwYW4gY2xhc3M9ImxhYmVsIGxhYmVsLXN1Y2Nlc3MiPjxzcGFuIGNsYXNzPSJnbHlwaGljb24ge3sjc3VjY2Vzc319Z2x5cGhpY29uLW9re3svfX0ge3tec3VjY2Vzc319Z2x5cGhpY29uLXJlbW92ZXt7L319IiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9zcGFuPiB7eyNzdWNjZXNzfX1TdWNjZXNze3svfX17e15zdWNjZXNzfX1GYWlse3svfX08L3NwYW4+PC9wPg0KICAgICAgICB7ey9lYWNofX0NCiAgICA8L2Rpdj4NCjwvZGl2Pg==","base64").toString(),
         resolve: function(data, parameters, cb) {
             cb(null);
         },
         activate: function(context) {
             var creds = model.getCredentials();
             ractive = context.domApi;
-            ractive.on('searchPackages', function() {
-                model.searchPackages(
-                    context.parameters.distroName, {pkg: ractive.get('pkgName')}, creds, 
-                    function (err, d) {
-                        ractive.set('packages', d[context.parameters.distroName]);
-                });
+            // save current distro (context.content.distros inherited from parent state)
+            context.content.distro = context.content.distros[context.parameters.distroName];
+            ractive.set('distro', context.content.distro);
+            ractive.on('browse', function(event) {
+                ractive.set('uploadResult', []);
+                this.find('#pkgFileInput').click();
+            });
+            ractive.on('selectFiles', function(context, files) {
+                context.set('pkgFiles', files);
+            });
+            ractive.on('uploadFiles', function(ractive_context, component) {
+                var files = ractive_context.get('pkgFiles');
+                if (files === undefined) {
+                    alert("Select files to upload");
+                    return;
+                }
+                for(var i = 0; i < files.length; i++) {
+                    model.uploadPackage(context.parameters.distroName, component, files[i], creds,  (err, result) => {
+                        ractive.push('uploadResult', result);
+                    });
+                }
             });
         }
     });
@@ -156,8 +170,18 @@ var moment = require('moment');
 var stateRouter = StateRouter(ractiveRenderer(Ractive, {
 		data: {
 			formatTS: function (ts) {
-						return moment(ts).fromNow();
-			}
+				return moment(ts).fromNow();
+			},
+			showFiles: function (files) {
+				var a = [];
+				if (files === undefined) {
+					return "";
+				}
+                for (var i = 0; i < files.length; i++) { 
+                    a.push(files[i].name)
+                }
+				return a.join('; ');
+			},
 		}
 	}), 'body')
 
@@ -217,6 +241,7 @@ module.exports = {
     getDistros: getDistros,
     getDistro: getDistro,
     searchPackages: searchPackages,
+    uploadPackage: uploadPackage,
 };
 
 function saveCredentials(url, token) {
@@ -283,6 +308,25 @@ function searchPackages(distro, selector, creds, cb) {
             cb(null, d.result);
         }
     }).catch(function(err) {return null});
+}
+
+function uploadPackage(distro, component, file, creds, cb) {
+    var headers = new Headers({
+        'Authorization': 'Bearer ' + creds.token
+    });
+    var url = creds.url + '/api/v1/package/upload/' + distro + '/' + component;
+
+    const reader = new FileReader();
+    reader.onload = (fileData) => {
+        var opts = { method: 'PUT', mode: 'cors', headers: headers, body: fileData.currentTarget.result };
+
+        fetch(url, opts).then((response) => {
+            return response.json();
+        }).then((d) => {
+            cb(null, {success: d.success, filename: /Package\s+(.*?)\s+was uploaded/.exec(d.msg)[1]});
+        }).catch((err) => { return false });
+    };
+    reader.readAsArrayBuffer(file);
 }
 },{"js-cookie":28}],7:[function(require,module,exports){
 module.exports = { reverse: false }

@@ -1,0 +1,25 @@
+<div class="row row-spaced">
+    <div class="col-lg-6">
+        <div class="input-group">
+            <input id="pkgFileInput" multiple="true" on-change="['selectFiles', @node.files]" type="file" class="hidden">
+            <input type="text" class="form-control" aria-label="..." value="{{ showFiles(pkgFiles) }}" two-way="false" on-click="browse" placeholder="Select files" readonly>
+            <div class="input-group-btn">
+                <!--button- type="button" on-click="browse" class="btn btn-default">Browse</button-->
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Upload to <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    {{#each distro.components}}
+                    <li><a href="{{makePath('app.distro.browse.upload', {distroName: distro.distro})}}" on-click="['uploadFiles', this]">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+            </div><!-- /btn-group -->
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+<div class="row row-spaced">
+    <div class="col-lg-6"> 
+        {{#each uploadResult}}
+            <p>{{filename}} <span class="label label-success"><span class="glyphicon {{#success}}glyphicon-ok{{/}} {{^success}}glyphicon-remove{{/}}" aria-hidden="true"></span> {{#success}}Success{{/}}{{^success}}Fail{{/}}</span></p>
+        {{/each}}
+    </div>
+</div>

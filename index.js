@@ -8,8 +8,18 @@ var moment = require('moment');
 var stateRouter = StateRouter(ractiveRenderer(Ractive, {
 		data: {
 			formatTS: function (ts) {
-						return moment(ts).fromNow();
-			}
+				return moment(ts).fromNow();
+			},
+			showFiles: function (files) {
+				var a = [];
+				if (files === undefined) {
+					return "";
+				}
+                for (var i = 0; i < files.length; i++) { 
+                    a.push(files[i].name)
+                }
+				return a.join('; ');
+			},
 		}
 	}), 'body')
 

@@ -12,7 +12,6 @@ module.exports = function (stateRouter) {
             cb(null);
         },
         activate: function(context) {
-            console.log("lalala");
             ractive = context.domApi;
 
             // save current distro (context.content.distros inherited from parent state)
@@ -55,19 +54,34 @@ module.exports = function (stateRouter) {
     stateRouter.addState({
         name: 'app.distro.browse.upload',
         route: '/upload',
-        template: fs.readFileSync('app/distro/search.html').toString(),
+        template: fs.readFileSync('app/distro/upload.html').toString(),
         resolve: function(data, parameters, cb) {
             cb(null);
         },
         activate: function(context) {
             var creds = model.getCredentials();
             ractive = context.domApi;
-            ractive.on('searchPackages', function() {
-                model.searchPackages(
-                    context.parameters.distroName, {pkg: ractive.get('pkgName')}, creds, 
-                    function (err, d) {
-                        ractive.set('packages', d[context.parameters.distroName]);
-                });
+            // save current distro (context.content.distros inherited from parent state)
+            context.content.distro = context.content.distros[context.parameters.distroName];
+            ractive.set('distro', context.content.distro);
+            ractive.on('browse', function(event) {
+                ractive.set('uploadResult', []);
+                this.find('#pkgFileInput').click();
+            });
+            ractive.on('selectFiles', function(context, files) {
+                context.set('pkgFiles', files);
+            });
+            ractive.on('uploadFiles', function(ractive_context, component) {
+                var files = ractive_context.get('pkgFiles');
+                if (files === undefined) {
+                    alert("Select files to upload");
+                    return;
+                }
+                for(var i = 0; i < files.length; i++) {
+                    model.uploadPackage(context.parameters.distroName, component, files[i], creds,  (err, result) => {
+                        ractive.push('uploadResult', result);
+                    });
+                }
             });
         }
     });

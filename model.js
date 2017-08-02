@@ -16,6 +16,7 @@ module.exports = {
     getDistros: getDistros,
     getDistro: getDistro,
     searchPackages: searchPackages,
+    uploadPackage: uploadPackage,
 };
 
 function saveCredentials(url, token) {
@@ -82,4 +83,23 @@ function searchPackages(distro, selector, creds, cb) {
             cb(null, d.result);
         }
     }).catch(function(err) {return null});
+}
+
+function uploadPackage(distro, component, file, creds, cb) {
+    var headers = new Headers({
+        'Authorization': 'Bearer ' + creds.token
+    });
+    var url = creds.url + '/api/v1/package/upload/' + distro + '/' + component;
+
+    const reader = new FileReader();
+    reader.onload = (fileData) => {
+        var opts = { method: 'PUT', mode: 'cors', headers: headers, body: fileData.currentTarget.result };
+
+        fetch(url, opts).then((response) => {
+            return response.json();
+        }).then((d) => {
+            cb(null, {success: d.success, filename: /Package\s+(.*?)\s+was uploaded/.exec(d.msg)[1]});
+        }).catch((err) => { return false });
+    };
+    reader.readAsArrayBuffer(file);
 }
