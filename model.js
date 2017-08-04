@@ -36,22 +36,29 @@ function getCredentials() {
     };
 }
 
-function getDistros(creds, cb) {
+function getDistros(creds) {
     var headers = new Headers({
         'Authorization': 'Bearer ' + creds.token
     });
     var url = creds.url + '/api/v1/distro/show';
     var opts = { method: 'GET', mode: 'cors', headers: headers };
-    fetch(url, opts).then(function(response) {
-        return response.json();
-    }).then(function(d) {
-        if (d.success) {
-            cb(null, d.result.reduce(function(a, x) {
-                a[x.distro] = x;
-                return a;
-            }, {}));
-        }
-    }).catch(function(err) {return null});
+
+    return new Promise( (resolve, reject) => {
+        fetch(url, opts).then( (response) => {
+            if (!response.ok) {
+                console.log(response.body);
+                reject("Error calling cacus: got " + response.status + " " + response.statusText);
+            }
+            return response.json();
+        }).catch( (err) => { reject(err) }).then( (d) => {
+            if (d.success) {
+                resolve(d.result.reduce( (a, x) => {
+                    a[x.distro] = x;
+                    return a;
+                }, {}));
+            }
+        });
+    });
 }
 
 function getDistro(distro, creds, cb) {
@@ -98,7 +105,12 @@ function uploadPackage(distro, component, file, creds, cb) {
         fetch(url, opts).then((response) => {
             return response.json();
         }).then((d) => {
-            cb(null, {success: d.success, filename: /Package\s+(.*?)\s+was uploaded/.exec(d.msg)[1]});
+            if (d.success) {
+                var m = /Package\s+(.*?)_(.*?)\s+was uploaded/.exec(d.msg);
+                cb(null, {success: d.success, filename: file.name, package: m[1], version: m[2], message: d.msg});
+            } else {
+                cb(null, {success: d.success, filename: file.name, package: 'N/A', version: 'N/A', message: d.msg})
+            }
         }).catch((err) => { return false });
     };
     reader.readAsArrayBuffer(file);

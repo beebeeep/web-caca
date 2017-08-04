@@ -97,7 +97,7 @@
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Upload <span class="caret"></span></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                 {{#each components}}
-                                <li><a href="#" on-click="['uploadFiles', this]">{{this}}</a></li>
+                                <li><a href="#" on-click="['uploadFiles', this]">{{name}}</a></li>
                                 {{/each}}
                                 </ul>
                             </div><!-- /btn-group -->
@@ -106,8 +106,16 @@
                 </div><!-- /.row -->
                 <div class="row row-spaced">
                     <div class="col-lg-6"> 
-                            <p>hello-world_0.1_amd64.deb <span class="label label-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Success</span></p>
-                            <p>hello-world_0.2_amd64.deb <span class="label label-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Success</span></p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr><th>File</th><th>Package</th><th>Version</th><th>Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="success"><td>hello-world_0.1_amd64.deb</td><td>hello-world</td><td>0.1</td><td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Success</td></tr>
+                                <tr><td>hello-world_0.2_amd64.deb</td><td>hello-world</td><td>0.2</td><td><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Pending</td></tr>
+                                <tr class="danger"><td>hello-world_0.3_amd64.deb</td><td>hello-world</td><td>0.3</td><td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Failed</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -123,7 +131,7 @@
         template: '#template',
         data: {
             test: "fuck",
-            components: ['testing', 'unstable', 'stable'],
+            components: {'testing': {name: 123}, 'unstable': {name: 321}},
             f: function(x) {
                 console.log(x);
                 var a = [];

@@ -10,9 +10,13 @@ module.exports = function (stateRouter) {
         template: fs.readFileSync('app/distro/distro.html').toString(),
         resolve: function resolve(data, params, cb) {
             var creds = model.getCredentials();
-            all({
-                distros: model.getDistros.bind(null, creds)
-            }, cb);
+            model.getDistros(creds).then( (distros) => {
+                cb(null, {distros: distros});
+            }).catch((err) => {
+                alert(err);
+                model.saveCredentials(null, null);
+                cb.redirect('login');
+            });
         },
         activate: function (context) {
             var ractive = context.domApi;

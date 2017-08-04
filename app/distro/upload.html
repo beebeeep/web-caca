@@ -2,7 +2,7 @@
     <div class="col-lg-6">
         <div class="input-group">
             <input id="pkgFileInput" multiple="true" on-change="['selectFiles', @node.files]" type="file" class="hidden">
-            <input type="text" class="form-control" aria-label="..." value="{{ showFiles(pkgFiles) }}" two-way="false" on-click="browse" placeholder="Select files" readonly>
+            <input type="text" class="form-control" aria-label="..." value="{{ showFiles(pkgFiles) }}" twoway="false" on-click="browse" placeholder="Select files" readonly>
             <div class="input-group-btn">
                 <!--button- type="button" on-click="browse" class="btn btn-default">Browse</button-->
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Upload to <span class="caret"></span></button>
@@ -17,9 +17,29 @@
 </div><!-- /.row -->
 
 <div class="row row-spaced">
-    <div class="col-lg-6"> 
-        {{#each uploadResult}}
-            <p>{{filename}} <span class="label label-success"><span class="glyphicon {{#success}}glyphicon-ok{{/}} {{^success}}glyphicon-remove{{/}}" aria-hidden="true"></span> {{#success}}Success{{/}}{{^success}}Fail{{/}}</span></p>
-        {{/each}}
+    <div class="col-lg-8"> 
+        <table class="table table-striped">
+            <thead>
+                <tr><th>File</th><th>Package</th><th>Version</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+                {{#each uploadResult}}
+                <tr class="{{^pending}} {{#success}}success{{/}} {{^success}}danger{{/}} {{/}}">
+                    <td>{{filename}}</td>
+                    <td>{{package}}</td>
+                    <td>{{version}}</td>
+                    <td>
+                        <span class="glyphicon 
+                        {{^pending}} 
+                            {{#success}}glyphicon-ok{{/}} {{^success}}glyphicon-remove{{/}} 
+                        {{/}}
+                        {{#pending}}
+                            glyphicon-time
+                        {{/}}" aria-hidden="true"></span> {{message}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 </div>

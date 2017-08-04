@@ -28,10 +28,6 @@ module.exports = function (stateRouter) {
             }
             ractive.set('cacus_url', context.content.credentials.url);
             ractive.set('cacus_user', token_info.sub?token_info.sub:"<invalid token>");
-            ractive.on('logout', function() {
-                model.saveCredentials(null, null);
-                stateRouter.go('login');
-            });
         }
     })
 

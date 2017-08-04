@@ -9,17 +9,26 @@ module.exports = function (stateRouter) {
         activate: function (context) {
             var ractive = context.domApi;
             var credentials = model.getCredentials();
-            console.log("Credentials: %s", credentials);
             if (credentials.token) {
                 stateRouter.go('app');
             } else {
                 ractive.set('cacus_url', model.getCredentials().url);
-                ractive.on('login', function () {
+                ractive.on('login', () => {
                     model.saveCredentials(ractive.get('cacus_url'), ractive.get('cacus_token'));
                     stateRouter.go('app');
                     return false;
                 })
             }
+        }
+    })
+
+    stateRouter.addState({
+        name: 'logout',
+        route: '/logout',
+        template: fs.readFileSync('login/logout.html').toString(),
+        activate: (context) => {
+            var ractive = context.domApi;
+            model.saveCredentials(null, null);
         }
     })
 }

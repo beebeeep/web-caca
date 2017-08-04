@@ -9,7 +9,7 @@ module.exports = function (stateRouter) {
         name: 'app',
         route: '/app',
         defaultChild: 'distro',
-        template: Buffer("PG5hdiBjbGFzcz0ibmF2YmFyIG5hdmJhci1pbnZlcnNlIG5hdmJhci1maXhlZC10b3AiPg0KICAgIDxkaXYgY2xhc3M9ImNvbnRhaW5lci1mbHVpZCI+DQogICAgICAgIDxkaXYgY2xhc3M9Im5hdmJhci1oZWFkZXIiPg0KICAgICAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJuYXZiYXItdG9nZ2xlIGNvbGxhcHNlZCIgZGF0YS10b2dnbGU9ImNvbGxhcHNlIiBkYXRhLXRhcmdldD0iI25hdmJhciIgYXJpYS1leHBhbmRlZD0iZmFsc2UiDQogICAgICAgICAgICAgICAgYXJpYS1jb250cm9scz0ibmF2YmFyIj4NCiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0ic3Itb25seSI+VG9nZ2xlIG5hdmlnYXRpb248L3NwYW4+DQogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9Imljb24tYmFyIj48L3NwYW4+DQogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9Imljb24tYmFyIj48L3NwYW4+DQogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9Imljb24tYmFyIj48L3NwYW4+DQogICAgICAgICAgICA8L2J1dHRvbj4NCiAgICAgICAgICAgIDxhIGNsYXNzPSJuYXZiYXItYnJhbmQiIGhyZWY9IiMiPkNhY3VzIGF0IHt7Y2FjdXNfdXJsfX08L2E+DQogICAgICAgIDwvZGl2Pg0KICAgICAgICA8ZGl2IGlkPSJuYXZiYXIiIGNsYXNzPSJuYXZiYXItY29sbGFwc2UgY29sbGFwc2UiPg0KICAgICAgICAgICAgPHVsIGNsYXNzPSJuYXYgbmF2YmFyLW5hdiBuYXZiYXItcmlnaHQiPg0KICAgICAgICAgICAgICAgIDxsaT48cCBjbGFzcz0ibmF2YmFyLXRleHQiPkxvZ2dlZCBpbiBhcyB7e2NhY3VzX3VzZXJ9fTwvcD48L2xpPg0KICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSJ7eyBtYWtlUGF0aCgnbG9naW4nKSB9fSIgb24tY2xpY2s9ImxvZ291dCI+TG9nb3V0PC9hPjwvbGk+DQogICAgICAgICAgICA8L3VsPg0KICAgICAgICA8L2Rpdj4NCiAgICA8L2Rpdj4NCjwvbmF2Pg0KDQo8dWktdmlldz48L3VpLXZpZXc+","base64").toString(),
+        template: Buffer("PG5hdiBjbGFzcz0ibmF2YmFyIG5hdmJhci1pbnZlcnNlIG5hdmJhci1maXhlZC10b3AiPg0KICAgIDxkaXYgY2xhc3M9ImNvbnRhaW5lci1mbHVpZCI+DQogICAgICAgIDxkaXYgY2xhc3M9Im5hdmJhci1oZWFkZXIiPg0KICAgICAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJuYXZiYXItdG9nZ2xlIGNvbGxhcHNlZCIgZGF0YS10b2dnbGU9ImNvbGxhcHNlIiBkYXRhLXRhcmdldD0iI25hdmJhciIgYXJpYS1leHBhbmRlZD0iZmFsc2UiDQogICAgICAgICAgICAgICAgYXJpYS1jb250cm9scz0ibmF2YmFyIj4NCiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0ic3Itb25seSI+VG9nZ2xlIG5hdmlnYXRpb248L3NwYW4+DQogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9Imljb24tYmFyIj48L3NwYW4+DQogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9Imljb24tYmFyIj48L3NwYW4+DQogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9Imljb24tYmFyIj48L3NwYW4+DQogICAgICAgICAgICA8L2J1dHRvbj4NCiAgICAgICAgICAgIDxhIGNsYXNzPSJuYXZiYXItYnJhbmQiIGhyZWY9IiMiPkNhY3VzIGF0IHt7Y2FjdXNfdXJsfX08L2E+DQogICAgICAgIDwvZGl2Pg0KICAgICAgICA8ZGl2IGlkPSJuYXZiYXIiIGNsYXNzPSJuYXZiYXItY29sbGFwc2UgY29sbGFwc2UiPg0KICAgICAgICAgICAgPHVsIGNsYXNzPSJuYXYgbmF2YmFyLW5hdiBuYXZiYXItcmlnaHQiPg0KICAgICAgICAgICAgICAgIDxsaT48cCBjbGFzcz0ibmF2YmFyLXRleHQiPkxvZ2dlZCBpbiBhcyB7e2NhY3VzX3VzZXJ9fTwvcD48L2xpPg0KICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSJ7eyBtYWtlUGF0aCgnbG9nb3V0JykgfX0iPkxvZ291dDwvYT48L2xpPg0KICAgICAgICAgICAgPC91bD4NCiAgICAgICAgPC9kaXY+DQogICAgPC9kaXY+DQo8L25hdj4NCg0KPHVpLXZpZXc+PC91aS12aWV3Pg==","base64").toString(),
         resolve: function resolve(data, params, cb) {
             var creds = model.getCredentials();
             if (!creds.token) {
@@ -30,10 +30,6 @@ module.exports = function (stateRouter) {
             }
             ractive.set('cacus_url', context.content.credentials.url);
             ractive.set('cacus_user', token_info.sub?token_info.sub:"<invalid token>");
-            ractive.on('logout', function() {
-                model.saveCredentials(null, null);
-                stateRouter.go('login');
-            });
         }
     })
 
@@ -98,32 +94,39 @@ module.exports = function (stateRouter) {
     stateRouter.addState({
         name: 'app.distro.browse.upload',
         route: '/upload',
-        template: Buffer("PGRpdiBjbGFzcz0icm93IHJvdy1zcGFjZWQiPg0KICAgIDxkaXYgY2xhc3M9ImNvbC1sZy02Ij4NCiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IGlkPSJwa2dGaWxlSW5wdXQiIG11bHRpcGxlPSJ0cnVlIiBvbi1jaGFuZ2U9Ilsnc2VsZWN0RmlsZXMnLCBAbm9kZS5maWxlc10iIHR5cGU9ImZpbGUiIGNsYXNzPSJoaWRkZW4iPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIGFyaWEtbGFiZWw9Ii4uLiIgdmFsdWU9Int7IHNob3dGaWxlcyhwa2dGaWxlcykgfX0iIHR3by13YXk9ImZhbHNlIiBvbi1jbGljaz0iYnJvd3NlIiBwbGFjZWhvbGRlcj0iU2VsZWN0IGZpbGVzIiByZWFkb25seT4NCiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImlucHV0LWdyb3VwLWJ0biI+DQogICAgICAgICAgICAgICAgPCEtLWJ1dHRvbi0gdHlwZT0iYnV0dG9uIiBvbi1jbGljaz0iYnJvd3NlIiBjbGFzcz0iYnRuIGJ0bi1kZWZhdWx0Ij5Ccm93c2U8L2J1dHRvbi0tPg0KICAgICAgICAgICAgICAgIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuIGJ0bi1kZWZhdWx0IGRyb3Bkb3duLXRvZ2dsZSIgZGF0YS10b2dnbGU9ImRyb3Bkb3duIiBhcmlhLWhhc3BvcHVwPSJ0cnVlIiBhcmlhLWV4cGFuZGVkPSJmYWxzZSI+VXBsb2FkIHRvIDxzcGFuIGNsYXNzPSJjYXJldCI+PC9zcGFuPjwvYnV0dG9uPg0KICAgICAgICAgICAgICAgIDx1bCBjbGFzcz0iZHJvcGRvd24tbWVudSBkcm9wZG93bi1tZW51LXJpZ2h0Ij4NCiAgICAgICAgICAgICAgICAgICAge3sjZWFjaCBkaXN0cm8uY29tcG9uZW50c319DQogICAgICAgICAgICAgICAgICAgIDxsaT48YSBocmVmPSJ7e21ha2VQYXRoKCdhcHAuZGlzdHJvLmJyb3dzZS51cGxvYWQnLCB7ZGlzdHJvTmFtZTogZGlzdHJvLmRpc3Ryb30pfX0iIG9uLWNsaWNrPSJbJ3VwbG9hZEZpbGVzJywgdGhpc10iPnt7dGhpc319PC9hPjwvbGk+DQogICAgICAgICAgICAgICAgICAgIHt7L2VhY2h9fQ0KICAgICAgICAgICAgICAgIDwvdWw+DQogICAgICAgICAgICA8L2Rpdj48IS0tIC9idG4tZ3JvdXAgLS0+DQogICAgICAgIDwvZGl2PjwhLS0gL2lucHV0LWdyb3VwIC0tPg0KICAgIDwvZGl2PjwhLS0gLy5jb2wtbGctNiAtLT4NCjwvZGl2PjwhLS0gLy5yb3cgLS0+DQoNCjxkaXYgY2xhc3M9InJvdyByb3ctc3BhY2VkIj4NCiAgICA8ZGl2IGNsYXNzPSJjb2wtbGctNiI+IA0KICAgICAgICB7eyNlYWNoIHVwbG9hZFJlc3VsdH19DQogICAgICAgICAgICA8cD57e2ZpbGVuYW1lfX0gPHNwYW4gY2xhc3M9ImxhYmVsIGxhYmVsLXN1Y2Nlc3MiPjxzcGFuIGNsYXNzPSJnbHlwaGljb24ge3sjc3VjY2Vzc319Z2x5cGhpY29uLW9re3svfX0ge3tec3VjY2Vzc319Z2x5cGhpY29uLXJlbW92ZXt7L319IiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9zcGFuPiB7eyNzdWNjZXNzfX1TdWNjZXNze3svfX17e15zdWNjZXNzfX1GYWlse3svfX08L3NwYW4+PC9wPg0KICAgICAgICB7ey9lYWNofX0NCiAgICA8L2Rpdj4NCjwvZGl2Pg==","base64").toString(),
-        resolve: function(data, parameters, cb) {
-            cb(null);
-        },
+        template: Buffer("PGRpdiBjbGFzcz0icm93IHJvdy1zcGFjZWQiPg0KICAgIDxkaXYgY2xhc3M9ImNvbC1sZy02Ij4NCiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAiPg0KICAgICAgICAgICAgPGlucHV0IGlkPSJwa2dGaWxlSW5wdXQiIG11bHRpcGxlPSJ0cnVlIiBvbi1jaGFuZ2U9Ilsnc2VsZWN0RmlsZXMnLCBAbm9kZS5maWxlc10iIHR5cGU9ImZpbGUiIGNsYXNzPSJoaWRkZW4iPg0KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIGFyaWEtbGFiZWw9Ii4uLiIgdmFsdWU9Int7IHNob3dGaWxlcyhwa2dGaWxlcykgfX0iIHR3b3dheT0iZmFsc2UiIG9uLWNsaWNrPSJicm93c2UiIHBsYWNlaG9sZGVyPSJTZWxlY3QgZmlsZXMiIHJlYWRvbmx5Pg0KICAgICAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAtYnRuIj4NCiAgICAgICAgICAgICAgICA8IS0tYnV0dG9uLSB0eXBlPSJidXR0b24iIG9uLWNsaWNrPSJicm93c2UiIGNsYXNzPSJidG4gYnRuLWRlZmF1bHQiPkJyb3dzZTwvYnV0dG9uLS0+DQogICAgICAgICAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJidG4gYnRuLWRlZmF1bHQgZHJvcGRvd24tdG9nZ2xlIiBkYXRhLXRvZ2dsZT0iZHJvcGRvd24iIGFyaWEtaGFzcG9wdXA9InRydWUiIGFyaWEtZXhwYW5kZWQ9ImZhbHNlIj5VcGxvYWQgdG8gPHNwYW4gY2xhc3M9ImNhcmV0Ij48L3NwYW4+PC9idXR0b24+DQogICAgICAgICAgICAgICAgPHVsIGNsYXNzPSJkcm9wZG93bi1tZW51IGRyb3Bkb3duLW1lbnUtcmlnaHQiPg0KICAgICAgICAgICAgICAgICAgICB7eyNlYWNoIGRpc3Ryby5jb21wb25lbnRzfX0NCiAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGhyZWY9Int7bWFrZVBhdGgoJ2FwcC5kaXN0cm8uYnJvd3NlLnVwbG9hZCcsIHtkaXN0cm9OYW1lOiBkaXN0cm8uZGlzdHJvfSl9fSIgb24tY2xpY2s9IlsndXBsb2FkRmlsZXMnLCB0aGlzXSI+e3t0aGlzfX08L2E+PC9saT4NCiAgICAgICAgICAgICAgICAgICAge3svZWFjaH19DQogICAgICAgICAgICAgICAgPC91bD4NCiAgICAgICAgICAgIDwvZGl2PjwhLS0gL2J0bi1ncm91cCAtLT4NCiAgICAgICAgPC9kaXY+PCEtLSAvaW5wdXQtZ3JvdXAgLS0+DQogICAgPC9kaXY+PCEtLSAvLmNvbC1sZy02IC0tPg0KPC9kaXY+PCEtLSAvLnJvdyAtLT4NCg0KPGRpdiBjbGFzcz0icm93IHJvdy1zcGFjZWQiPg0KICAgIDxkaXYgY2xhc3M9ImNvbC1sZy04Ij4gDQogICAgICAgIDx0YWJsZSBjbGFzcz0idGFibGUgdGFibGUtc3RyaXBlZCI+DQogICAgICAgICAgICA8dGhlYWQ+DQogICAgICAgICAgICAgICAgPHRyPjx0aD5GaWxlPC90aD48dGg+UGFja2FnZTwvdGg+PHRoPlZlcnNpb248L3RoPjx0aD5TdGF0dXM8L3RoPjwvdHI+DQogICAgICAgICAgICA8L3RoZWFkPg0KICAgICAgICAgICAgPHRib2R5Pg0KICAgICAgICAgICAgICAgIHt7I2VhY2ggdXBsb2FkUmVzdWx0fX0NCiAgICAgICAgICAgICAgICA8dHIgY2xhc3M9Int7XnBlbmRpbmd9fSB7eyNzdWNjZXNzfX1zdWNjZXNze3svfX0ge3tec3VjY2Vzc319ZGFuZ2Vye3svfX0ge3svfX0iPg0KICAgICAgICAgICAgICAgICAgICA8dGQ+e3tmaWxlbmFtZX19PC90ZD4NCiAgICAgICAgICAgICAgICAgICAgPHRkPnt7cGFja2FnZX19PC90ZD4NCiAgICAgICAgICAgICAgICAgICAgPHRkPnt7dmVyc2lvbn19PC90ZD4NCiAgICAgICAgICAgICAgICAgICAgPHRkPg0KICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9ImdseXBoaWNvbiANCiAgICAgICAgICAgICAgICAgICAgICAgIHt7XnBlbmRpbmd9fSANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7eyNzdWNjZXNzfX1nbHlwaGljb24tb2t7ey99fSB7e15zdWNjZXNzfX1nbHlwaGljb24tcmVtb3Zle3svfX0gDQogICAgICAgICAgICAgICAgICAgICAgICB7ey99fQ0KICAgICAgICAgICAgICAgICAgICAgICAge3sjcGVuZGluZ319DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2x5cGhpY29uLXRpbWUNCiAgICAgICAgICAgICAgICAgICAgICAgIHt7L319IiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9zcGFuPiB7e21lc3NhZ2V9fQ0KICAgICAgICAgICAgICAgICAgICA8L3RkPg0KICAgICAgICAgICAgICAgIDwvdHI+DQogICAgICAgICAgICAgICAge3svZWFjaH19DQogICAgICAgICAgICA8L3Rib2R5Pg0KICAgICAgICA8L3RhYmxlPg0KICAgIDwvZGl2Pg0KPC9kaXY+","base64").toString(),
         activate: function(context) {
             var creds = model.getCredentials();
+            var uploadResult = []
             ractive = context.domApi;
             // save current distro (context.content.distros inherited from parent state)
             context.content.distro = context.content.distros[context.parameters.distroName];
             ractive.set('distro', context.content.distro);
+            ractive.set('uploadResult', uploadResult);
             ractive.on('browse', function(event) {
-                ractive.set('uploadResult', []);
+                uploadResult = {};
+                ractive.update('uploadResult');
                 this.find('#pkgFileInput').click();
             });
             ractive.on('selectFiles', function(context, files) {
-                context.set('pkgFiles', files);
+                ractive.set('pkgFiles', files);
             });
             ractive.on('uploadFiles', function(ractive_context, component) {
-                var files = ractive_context.get('pkgFiles');
+                var files = ractive.get('pkgFiles');
                 if (files === undefined) {
                     alert("Select files to upload");
                     return;
                 }
                 for(var i = 0; i < files.length; i++) {
+                    uploadResult[files[i].name] = {filename: files[i].name, pending: true, message: 'Pending', package: 'N/A', version: 'N/A'};
+                    ractive.set('uploadResult', uploadResult);
                     model.uploadPackage(context.parameters.distroName, component, files[i], creds,  (err, result) => {
-                        ractive.push('uploadResult', result);
+                        uploadResult[result.filename].package = result.package;
+                        uploadResult[result.filename].version = result.version;
+                        uploadResult[result.filename].success = result.success;
+                        uploadResult[result.filename].pending = false;
+                        uploadResult[result.filename].message = result.success?"Success":("Failed: " + result.message);
+                        ractive.set('uploadResult', uploadResult);
                     });
                 }
             });
@@ -145,9 +148,13 @@ module.exports = function (stateRouter) {
         template: Buffer("PGRpdiBjbGFzcz0iY29udGFpbmVyLWZsdWlkIj4KICAgIDxkaXYgY2xhc3M9InJvdyI+CiAgICAgICAgPGRpdiBjbGFzcz0iY29sLXNtLTIgc2lkZWJhciI+CiAgICAgICAgICAgIDx1bCBjbGFzcz0ibmF2IG5hdi1zaWRlYmFyIj4KICAgICAgICAgICAgICAgIDxsaT48aDM+RGlzdHJpYnV0aW9uczwvaDM+PC9saT4KICAgICAgICAgICAgICAgIHt7I2VhY2ggZGlzdHJvc319CiAgICAgICAgICAgICAgICA8bGkgYXMtYWN0aXZlPSInYXBwLmRpc3Ryby5icm93c2UnLCB7ZGlzdHJvTmFtZTogZGlzdHJvfSwgJ2FjdGl2ZSciPgogICAgICAgICAgICAgICAgICAgIDxhIGhyZWY9Int7IG1ha2VQYXRoKCdhcHAuZGlzdHJvLmJyb3dzZScsIHsgZGlzdHJvTmFtZTogZGlzdHJvIH0pIH19Ij57e2Rpc3Ryb319PC9hPjwvbGk+CiAgICAgICAgICAgICAgICB7e2Vsc2V9fQogICAgICAgICAgICAgICAgPGxpIGNsYXNzPSJkaXNhYmxlZCI+T2gsIG5vIGRpc3Ryb3MgZm91bmQ8L2xpPgogICAgICAgICAgICAgICAge3svZWFjaH19CiAgICAgICAgICAgIDwvdWw+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzcz0iY29sLXNtLTEwIGNvbC1zbS1vZmZzZXQtMiBtYWluIj4KICAgICAgICAgICAgPHVpLXZpZXc+PC91aS12aWV3PgogICAgICAgIDwvZGl2PgogICAgPC9kaXY+CjwvZGl2Pg==","base64").toString(),
         resolve: function resolve(data, params, cb) {
             var creds = model.getCredentials();
-            all({
-                distros: model.getDistros.bind(null, creds)
-            }, cb);
+            model.getDistros(creds).then( (distros) => {
+                cb(null, {distros: distros});
+            }).catch((err) => {
+                alert(err);
+                model.saveCredentials(null, null);
+                cb.redirect('login');
+            });
         },
         activate: function (context) {
             var ractive = context.domApi;
@@ -207,17 +214,26 @@ module.exports = function (stateRouter) {
         activate: function (context) {
             var ractive = context.domApi;
             var credentials = model.getCredentials();
-            console.log("Credentials: %s", credentials);
             if (credentials.token) {
                 stateRouter.go('app');
             } else {
                 ractive.set('cacus_url', model.getCredentials().url);
-                ractive.on('login', function () {
+                ractive.on('login', () => {
                     model.saveCredentials(ractive.get('cacus_url'), ractive.get('cacus_token'));
                     stateRouter.go('app');
                     return false;
                 })
             }
+        }
+    })
+
+    stateRouter.addState({
+        name: 'logout',
+        route: '/logout',
+        template: Buffer("PGRpdiBjbGFzcz0ianVtYm90cm9uIj4gDQogICAgPGgyPkxvZ2dlZCBvdXQ8L2gyPg0KICAgIDxwPjxhIGhyZWY9Int7IG1ha2VQYXRoKCdsb2dpbicpIH19IiByb2xlPSJidXR0b24iIGNsYXNzPSJidG4gYnRuLXByaW1hcnkgYnRuLWxnIj5Mb2dpbiBhZ2FpbjwvYT48L3A+DQo8L2Rpdj4=","base64").toString(),
+        activate: (context) => {
+            var ractive = context.domApi;
+            model.saveCredentials(null, null);
         }
     })
 }
@@ -261,22 +277,29 @@ function getCredentials() {
     };
 }
 
-function getDistros(creds, cb) {
+function getDistros(creds) {
     var headers = new Headers({
         'Authorization': 'Bearer ' + creds.token
     });
     var url = creds.url + '/api/v1/distro/show';
     var opts = { method: 'GET', mode: 'cors', headers: headers };
-    fetch(url, opts).then(function(response) {
-        return response.json();
-    }).then(function(d) {
-        if (d.success) {
-            cb(null, d.result.reduce(function(a, x) {
-                a[x.distro] = x;
-                return a;
-            }, {}));
-        }
-    }).catch(function(err) {return null});
+
+    return new Promise( (resolve, reject) => {
+        fetch(url, opts).then( (response) => {
+            if (!response.ok) {
+                console.log(response.body);
+                reject("Error calling cacus: got " + response.status + " " + response.statusText);
+            }
+            return response.json();
+        }).catch( (err) => { reject(err) }).then( (d) => {
+            if (d.success) {
+                resolve(d.result.reduce( (a, x) => {
+                    a[x.distro] = x;
+                    return a;
+                }, {}));
+            }
+        });
+    });
 }
 
 function getDistro(distro, creds, cb) {
@@ -323,7 +346,12 @@ function uploadPackage(distro, component, file, creds, cb) {
         fetch(url, opts).then((response) => {
             return response.json();
         }).then((d) => {
-            cb(null, {success: d.success, filename: /Package\s+(.*?)\s+was uploaded/.exec(d.msg)[1]});
+            if (d.success) {
+                var m = /Package\s+(.*?)_(.*?)\s+was uploaded/.exec(d.msg);
+                cb(null, {success: d.success, filename: file.name, package: m[1], version: m[2], message: d.msg});
+            } else {
+                cb(null, {success: d.success, filename: file.name, package: 'N/A', version: 'N/A', message: d.msg})
+            }
         }).catch((err) => { return false });
     };
     reader.readAsArrayBuffer(file);
