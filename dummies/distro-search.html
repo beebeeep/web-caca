@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Caca!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="../styles/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/ractive"></script>
+</head>
+
+<body>
+    <div id="target"></div>
+    <script id="template" type="text/html">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+
+            <div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>                <a class="navbar-brand" href="#">Cacus at https://cacus.miga.me.uk/debian</a></div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <p class="navbar-text">Logged in as midanil</p>
+                    </li>
+                    <li><a href="#/login">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li>
+                        <h3>Distributions</h3>
+                    </li>
+                    <li class="active"><a href="#/app/distro/common">common</a></li>
+                    <li class=""><a href="#/app/distro/trusty-security">trusty-security</a></li>
+                    <li class=""><a href="#/app/distro/trusty-updates">trusty-updates</a></li>
+                    <li class=""><a href="#/app/distro/cacus">cacus</a></li>
+                    <li class=""><a href="#/app/distro/cacus-jessie">cacus-jessie</a></li>
+                    <li><a href="#/app/distro/common%40snap1%40snap1">common@snap1@snap1</a></li>
+                    <li><a href="#/app/distro/common%40snapp2">common@snapp2</a></li>
+                    <li><a href="#/app/distro/common%40snap2">common@snap2</a></li>
+                    <li><a href="#/app/distro/common%40snap1">common@snap1</a></li>
+                    <li><a href="#/app/distro/test-vcad">test-vcad</a></li>
+                    <li><a href="#/app/distro/stable-updates">stable-updates</a></li>
+                    <li><a href="#/app/distro/jessie-updates">jessie-updates</a></li>
+                    <li class=""><a href="#/app/distro/jessie">jessie</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-10 col-sm-offset-2 main">
+                <div class="row"><h1 class="page-header">Distro common: test</h1></div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <h1>12</h1>
+                        <p class="lead">Total packages</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <h1>17 days ago</h1>
+                        <p class="lead">Last updated</p>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <ul class="nav nav-tabs">
+                                <li role="presentation" class="active"><a href="#/app/distro/common/unstable">Search </a></li>
+                                <li role="presentation"><a href="#/app/distro/common/testing">Upload</a></li>
+                    </ul>
+                </div>
+
+                <!-- main content -->
+                <ui-view>
+                    <div class="row row-spaced">
+                        <form class="form-inline" onsubmit="return false">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Package name regex" value="statsite">
+                                <button type="submit" class="btn btn-default btn-primary">Search</button>
+                            </div>
+                        </form>
+                    </div> 
+                    
+                    <div class="row table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Version</th>
+                                    <th>Description</th>
+                                    <th>Components</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statsite</td> 
+                                    <td>0.8.2-skype4</td> 
+                                    <td>Statsite is a metrics aggregation server</td> 
+                                    <td>
+                                        <div class="tagcloud01">
+                                            <ul>
+                                                <li><p>unstable<span class="tagcloud01">x</span></p></li>
+                                                <li><p>testing</p></li>
+                                                <li>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                            +
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="tag-menu dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                            <li><a href="#">Action</a></li>
+                                                            <li><a href="#">Another action</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ui-view>
+            </div>
+        </div>
+    </div>
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <script type="text/javascript"> 
+    $('.dropdown').on('show.bs.dropdown', function () {
+            alert('assa');
+            $('body').append($('.dropdown').css({
+                position: 'absolute',
+                left: $('.dropdown').offset().left,
+                top: $('.dropdown').offset().top
+            }).detach());
+    });
+
+    $('.dropdown').on('hidden.bs.dropdown', function () {
+            $('.tagcloud01').append($('.dropdown').css({
+                position: false, left: false, top: false
+            }).detach());
+    });
+</script>
+<script>
+    var ractive = new Ractive({
+        target: '#target',
+        template: '#template',
+        data: {
+            test: "fuck",
+            components: {'testing': {name: 123}, 'unstable': {name: 321}},
+            f: function(x) {
+                console.log(x);
+                var a = [];
+                for (var i = 0; i < x.length; i++) { 
+                    a.push(x[i].name)
+                }
+                return a.join('; ');
+            },
+        },
+        oninit: function() {
+            this.on('browse', function(event) {
+                this.find('#pkgFileInput').click();
+            });
+            this.on('selectFiles', function(context, files) {
+                context.set('pkgFiles', files);
+            });
+            this.on('uploadFiles', function(context, component) {
+                var files = context.get('pkgFiles');
+                for(var i = 0; i < files.length; i++) {
+                    console.log("Uploading " + files[i].name + " to " + component )
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
