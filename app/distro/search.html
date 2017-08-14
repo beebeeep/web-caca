@@ -18,12 +18,14 @@
             </tr>
         </thead>
         <tbody>
-            {{#each packages}}
+            {{#each packages:index}}
             <tr>
                 <td>{{package}}</td>
                 <td>{{version}}</td>
                 <td>{{description}}</td>
-                <td class="col-md-4"> <input type="text" class="form-control" twoway="false" as-tokenfield value="{{components.join(', ')}}" /></td>
+                <td class="col-md-4"> 
+                    <input type="text" class="form-control" twoway="false" as-tokenfield="index,package,version,components" 
+                        value="{{components.join(', ')}}" /></td>
             </tr>
             {{/each}}
         </tbody>

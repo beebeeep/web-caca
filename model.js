@@ -17,6 +17,8 @@ module.exports = {
     getDistro: getDistro,
     searchPackages: searchPackages,
     uploadPackage: uploadPackage,
+    copyPackage: copyPackage,
+    removePackage: removePackage,
 };
 
 function saveCredentials(url, token) {
@@ -114,4 +116,52 @@ function uploadPackage(distro, component, file, creds, cb) {
         }).catch((err) => { return false });
     };
     reader.readAsArrayBuffer(file);
+}
+
+function copyPackage(distro, package, version, from, to, creds) {
+    var headers = new Headers({
+        'Authorization': 'Bearer ' + creds.token,
+        'Content-Type': 'application/json',
+    });
+    var url = creds.url + '/api/v1/package/copy/' + distro;
+    var opts = { method: 'POST', mode: 'cors', headers: headers, body: JSON.stringify({from: from, to: to, pkg: package, ver: version})};
+    return new Promise( (resolve, reject) => {
+        fetch(url, opts).then( (response) => {
+            if (!response.ok) {
+                console.log(response.body);
+                reject("Error calling cacus: got " + response.status + " " + response.statusText);
+            }
+            return response.json();
+        }).catch( (err) => { reject(err) }).then( (d) => {
+            if (d.success) {
+                resolve("copied ok");
+            } else {
+                reject(d.msg);
+            }
+        });
+    });
+}
+
+function removePackage(distro, package, version, component, creds) {
+    var headers = new Headers({
+        'Authorization': 'Bearer ' + creds.token,
+        'Content-Type': 'application/json',
+    });
+    var url = creds.url + '/api/v1/package/remove/' + distro + '/' + component;
+    var opts = { method: 'POST', mode: 'cors', headers: headers, body: JSON.stringify({pkg: package, ver: version})};
+    return new Promise( (resolve, reject) => {
+        fetch(url, opts).then( (response) => {
+            if (!response.ok) {
+                console.log(response.body);
+                reject("Error calling cacus: got " + response.status + " " + response.statusText);
+            }
+            return response.json();
+        }).catch( (err) => { reject(err) }).then( (d) => {
+            if (d.success) {
+                resolve("removed ok");
+            } else {
+                reject(d.msg);
+            }
+        });
+    });
 }

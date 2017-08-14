@@ -3,7 +3,7 @@ var all = require('async-all');
 var model = require('../../model.js');
 
 var jquery = require('jquery');
-var tokenfield = require('bootstrap-tokenfield')(jquery);
+var tokenfield = require('../../vendor/bootstrap-tokenfield.js')(jquery);
 
 module.exports = function (stateRouter) {
     stateRouter.addState({
@@ -45,34 +45,83 @@ module.exports = function (stateRouter) {
         },
         activate: function(context) {
             var creds = model.getCredentials();
-            ractive = context.domApi;
+            var ractive = context.domApi;
             context.content.distro = context.content.distros[context.parameters.distroName];
-            ractive.decorators.tokenfield = (node) => {
+            var packages = context.content.searchResult[context.parameters.distroName]
+
+            ractive.decorators.tokenfield = (node, index, package, version, components) => {
                 var n = jquery(node);
                 n.tokenfield({
                     autocomplete: {
                         source: context.content.distro.components,
-                        delay: 100
+                        delay: 100,
                     },
-                    showAutocompleteOnFocus: true
+                    showAutocompleteOnFocus: true,
+                    baseUrl: n[0].baseURI,
                 });
                 n.on('tokenfield:createtoken', (event) => {
+                    if (context.content.distro.components.indexOf(event.attrs.value) === -1) {
+                        //non-existent component
+                        event.preventDefault();
+                    }
+                     
+                    /*if (components.indexOf(event.attrs.value) != -1) {
+                        //duplicate component
+                        event.preventDefault();
+                    }*/
+
+                    // XXX TODO SHIT FUCK: ractive's model could be out of sync, so check against tokenfield's tokens
                     n.tokenfield('getTokens').forEach((x) => {
                         if (x.value === event.attrs.value) {
                             event.preventDefault();
                         }
                     });
+
                 });
 
+                n.on('tokenfield:createdtoken', (event) => {
+                    jquery(event.relatedTarget).addClass('duplicate');
+                    model.copyPackage(context.parameters.distroName, package, version, components[0], event.attrs.value, creds)
+                        .then( (r) => { 
+                            packages[index].components.push(event.attrs.value);
+                            console.log(packages[index]);
+                            jquery(event.relatedTarget).removeClass('duplicate');
+                        })
+                        .catch( (err) => { 
+                            alert('Failed to copy package to "' + event.attrs.value + '": ' + err);
+                            jquery(event.relatedTarget).removeClass('duplicate');
+                            jquery(event.relatedTarget).addClass('invalid');
+                        });
+                });
+
+                n.on('tokenfield:removetoken', (event) => {
+                    // don't like how it looks like: tag is removed immidiately but actual removal is still pending 
+                    // (and may even fail without updating the view)
+                    jquery(event.relatedTarget).addClass('duplicate');
+                    model.removePackage(context.parameters.distroName, package, version, event.attrs.value, creds)
+                        .then( (r) => { 
+                            packages[index].components = packages[index].components.filter((x) => { return x != event.attrs.value });
+                            jquery(event.relatedTarget).removeClass('duplicate');
+                            //n.tokenfield('setTokens', packages[index].components);
+                            ractive.set('packages', packages);
+                            ractive.updateModel('packages', true);
+
+                        })
+                        .catch( (err) => { 
+                            alert('Failed to remove package from "' + event.attrs.value + '": ' + err);
+                            jquery(event.relatedTarget).removeClass('duplicate');
+                        });
+                });
                 return {
                     teardown: () => { }
                 }
             };
+
             ractive.set('pkgName', context.parameters.pkgNameRegex)
             ractive.on('searchPackages', function() {
                 stateRouter.go('app.distro.browse.search', {distroName: context.parameters.distroName, pkgNameRegex: ractive.get('pkgName')})
             });
-            ractive.set('packages', context.content.searchResult[context.parameters.distroName]);
+            ractive.set('packages', packages);
         }
     });
 

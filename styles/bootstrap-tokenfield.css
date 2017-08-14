@@ -62,11 +62,11 @@
   border-color: rgba(82, 168, 236, 0.8);
 }
 .tokenfield .token.duplicate {
-  border-color: #ebccd1;
+  border-color: #DF8218;
   -webkit-animation-name: blink;
   animation-name: blink;
-  -webkit-animation-duration: 0.1s;
-  animation-duration: 0.1s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-direction: normal;
   animation-direction: normal;
   -webkit-animation-timing-function: ease;
