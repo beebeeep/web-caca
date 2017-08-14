@@ -2,6 +2,9 @@ var fs = require('fs');
 var all = require('async-all');
 var model = require('../../model.js');
 
+var jquery = require('jquery');
+var tokenfield = require('bootstrap-tokenfield')(jquery);
+
 module.exports = function (stateRouter) {
     stateRouter.addState({
         name: 'app.distro.browse',
@@ -43,6 +46,28 @@ module.exports = function (stateRouter) {
         activate: function(context) {
             var creds = model.getCredentials();
             ractive = context.domApi;
+            context.content.distro = context.content.distros[context.parameters.distroName];
+            ractive.decorators.tokenfield = (node) => {
+                var n = jquery(node);
+                n.tokenfield({
+                    autocomplete: {
+                        source: context.content.distro.components,
+                        delay: 100
+                    },
+                    showAutocompleteOnFocus: true
+                });
+                n.on('tokenfield:createtoken', (event) => {
+                    n.tokenfield('getTokens').forEach((x) => {
+                        if (x.value === event.attrs.value) {
+                            event.preventDefault();
+                        }
+                    });
+                });
+
+                return {
+                    teardown: () => { }
+                }
+            };
             ractive.set('pkgName', context.parameters.pkgNameRegex)
             ractive.on('searchPackages', function() {
                 stateRouter.go('app.distro.browse.search', {distroName: context.parameters.distroName, pkgNameRegex: ractive.get('pkgName')})

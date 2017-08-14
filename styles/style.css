@@ -171,6 +171,7 @@ body {
 	-webkit-transition: .2s;
 	transition: .2s;
 }
+
 .tagcloud01 button {
   height: 28px;
 	padding: 0 0.5em;
@@ -188,4 +189,8 @@ body {
 
 .tagcloud01 span {
   margin-left: 10px;
+}
+
+.dropdown.open {
+  position: absolute;
 }

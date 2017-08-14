@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>Caca!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" crossorigin="anonymous">
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap-tokenfield.css">
     <link href="../styles/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/ractive"></script>
 </head>
@@ -89,7 +90,7 @@
                                     <th>Package</th>
                                     <th>Version</th>
                                     <th>Description</th>
-                                    <th>Components</th>
+                                    <th class="col-md-4">Components</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -97,25 +98,8 @@
                                     <td>statsite</td> 
                                     <td>0.8.2-skype4</td> 
                                     <td>Statsite is a metrics aggregation server</td> 
-                                    <td>
-                                        <div class="tagcloud01">
-                                            <ul>
-                                                <li><p>unstable<span class="tagcloud01">x</span></p></li>
-                                                <li><p>testing</p></li>
-                                                <li>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                            +
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="tag-menu dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                            <li><a href="#">Action</a></li>
-                                                            <li><a href="#">Another action</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <td class="col-md-4">
+                                        <input type="text" class="form-control" id="tokenfield" value="unstable" />
                                     </td>
                                 </tr>
                             </tbody>
@@ -126,11 +110,12 @@
         </div>
     </div>
     </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
- <script type="text/javascript"> 
-    $('.dropdown').on('show.bs.dropdown', function () {
-            alert('assa');
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js" crossorigin="anonymous"></script>
+<script src="../bootstrap-tokenfield.js"></script>
+ <!--script> 
+    $('body').on('show.bs.dropdown', '.dropdown', function () {
             $('body').append($('.dropdown').css({
                 position: 'absolute',
                 left: $('.dropdown').offset().left,
@@ -138,13 +123,22 @@
             }).detach());
     });
 
-    $('.dropdown').on('hidden.bs.dropdown', function () {
+    $('body').on('hidden.bs.dropdown', '.dropdown', function () {
             $('.tagcloud01').append($('.dropdown').css({
                 position: false, left: false, top: false
             }).detach());
     });
-</script>
+</script-->
 <script>
+    $(document).ready(() => {
+            $('#tokenfield').tokenfield({
+                autocomplete: {
+                    source: ['unstable', 'stable', 'testing'],
+                    delay: 100
+                },
+                showAutocompleteOnFocus: true
+            })
+        });
     var ractive = new Ractive({
         target: '#target',
         template: '#template',

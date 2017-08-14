@@ -4,6 +4,8 @@ var ractiveRenderer = require('ractive-state-router')
 var domready = require('domready')
 var moment = require('moment');
 
+global.jQuery = require('jquery');
+
 // setup ractive and some helpers 
 var stateRouter = StateRouter(ractiveRenderer(Ractive, {
 		data: {
