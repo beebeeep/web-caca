@@ -135,6 +135,8 @@ module.exports = function (stateRouter) {
                 });
 
                 n.on('tokenfield:removetoken', (event) => {
+                    // don't like how it looks like: tag is removed immidiately but actual removal is still pending 
+                    // (and may even fail without updating the view)
                     jquery(event.relatedTarget).addClass('duplicate');
                     model.removePackage(context.parameters.distroName, package, version, event.attrs.value, creds)
                         .then( (r) => { 
@@ -306,7 +308,7 @@ module.exports = function (stateRouter) {
     stateRouter.addState({
         name: 'logout',
         route: '/logout',
-        template: Buffer("PGRpdiBjbGFzcz0ianVtYm90cm9uIj4gDQogICAgPGgyPkxvZ2dlZCBvdXQ8L2gyPg0KICAgIDxwPjxhIGhyZWY9Int7IG1ha2VQYXRoKCdsb2dpbicpIH19IiByb2xlPSJidXR0b24iIGNsYXNzPSJidG4gYnRuLXByaW1hcnkgYnRuLWxnIj5Mb2dpbiBhZ2FpbjwvYT48L3A+DQo8L2Rpdj4=","base64").toString(),
+        template: Buffer("PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgICA8ZGl2IGNsYXNzPSJqdW1ib3Ryb24gY29sLW1kLTYgY29sLW1kLW9mZnNldC0zIHRleHQtY2VudGVyIj4gDQogICAgICAgIDxoMj5Mb2dnZWQgb3V0PC9oMj4NCiAgICAgICAgPHA+PGEgaHJlZj0ie3sgbWFrZVBhdGgoJ2xvZ2luJykgfX0iIHJvbGU9ImJ1dHRvbiIgY2xhc3M9ImJ0biBidG4tcHJpbWFyeSBidG4tbGciPkxvZ2luIGFnYWluPC9hPjwvcD4NCiAgICA8L2Rpdj4NCjwvZGl2Pg==","base64").toString(),
         activate: (context) => {
             var ractive = context.domApi;
             model.saveCredentials(null, null);
