@@ -20,10 +20,10 @@
         <tbody>
             {{#each packages:index}}
             <tr>
-                <td>{{package}}</td>
-                <td>{{version}}</td>
+                <td class="col-md-2">{{package}}</td>
+                <td class="col-md-2">{{version}}</td>
                 <td>{{description}}</td>
-                <td class="col-md-4"> 
+                <td class="col-md-3"> 
                     <input type="text" class="form-control" twoway="false" as-tokenfield="index,package,version,components" 
                         value="{{components.join(', ')}}" /></td>
             </tr>
