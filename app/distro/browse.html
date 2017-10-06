@@ -10,6 +10,14 @@
         <h1>{{  formatTS(lastupdated) }}</h1>
         <p class="lead">Last updated</p>
     </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{ humanizeBytes(quota_used) }}</h1>
+        <p class="lead">Used</p>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h1>{{ quota < 0? "∞" : humanizeBytes(quota - quota_used) }}</h1>
+        <p class="lead">Left</p>
+    </div>
 </div>
 
 <div class="row">

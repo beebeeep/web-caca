@@ -3,16 +3,19 @@ var Ractive = require('ractive')
 var ractiveRenderer = require('ractive-state-router')
 var domready = require('domready')
 var moment = require('moment');
+var filesize = require('filesize');
+
+var model = require('./model.js');
 
 global.jQuery = require('jquery');
 
 // setup ractive and some helpers 
 var stateRouter = StateRouter(ractiveRenderer(Ractive, {
 		data: {
-			formatTS: function (ts) {
+			formatTS: (ts) => {
 				return moment(ts).fromNow();
 			},
-			showFiles: function (files) {
+			showFiles: (files) => {
 				var a = [];
 				if (files === undefined) {
 					return "";
@@ -22,6 +25,12 @@ var stateRouter = StateRouter(ractiveRenderer(Ractive, {
                 }
 				return a.join('; ');
 			},
+			humanizeBytes: (bytes) => {
+				return filesize(bytes, {'standard': 'iec'})
+			},
+			getFullURL: (url) => {
+				return model.getCredentials().url + "/" + url;
+			}
 		}
 	}), 'body')
 

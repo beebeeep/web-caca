@@ -20,7 +20,7 @@
         <tbody>
             {{#each packages:index}}
             <tr>
-                <td class="col-md-2">{{package}}</td>
+                <td class="col-md-2"><a href="{{ getFullURL(url) }}">{{package}}</a></td>
                 <td class="col-md-2">{{version}}</td>
                 <td>{{description}}</td>
                 <td class="col-md-3"> 
